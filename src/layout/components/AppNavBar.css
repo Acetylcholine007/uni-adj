@@ -1,0 +1,90 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.avatar-background {
+  background-color: #C0C0C0;
+  border-radius: 0rem 0rem 0rem 2rem;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.account {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.profile-label {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.brand-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 4rem;
+    color: red;
+    margin: 0;
+}
+
+.brand-label {
+    text-align: center;
+    color: white;
+    background-color: black;
+    margin: 0;
+    height: 2rem;
+    font-size: 1.4rem;
+}
+
+.search {
+    height: 2rem;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+}
+
+.search-field {
+    flex-grow: 1;
+    height: 100%;
+    border-radius: 0;
+    border: 0;
+    box-shadow: inset 0 0 5px gray;
+    background-color: #F3F2F2;
+    box-sizing: border-box;
+}
+
+.search-button {
+    height: 100%;
+    width: 2.5rem;
+    border-radius: 0;
+    background-color: red;
+    color: white;
+    border: 0;
+}
+
+.signout {
+    margin: 2px;
+}

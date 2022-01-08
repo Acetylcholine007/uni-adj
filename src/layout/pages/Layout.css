@@ -1,0 +1,19 @@
+.main-container {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.content-container {
+    height: 100vh;
+    width: 85%;
+    margin-left: 15%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    border-radius: 5rem 0rem 0rem 5rem;
+    overflow: hidden;
+    padding: 0rem 3rem 1rem 3rem;
+    box-shadow: 0 0 10px 1px #696969;
+}
