@@ -1,11 +1,78 @@
-import React from 'react'
+import { Grid } from "@mui/material";
+import React from "react";
+import { useHistory } from "react-router";
 
 const CatalogPage = () => {
-    return (
-        <div>
-            Catalog Page
-        </div>
-    )
-}
+  const history = useHistory();
+  return (
+    <div>
+      <h1>Categories:</h1>
+      <Grid container spacing={3}>
+        <Grid item xs={6} md={4}>
+          <button
+            className="app-button p-color full-width"
+            onClick={() => history.push("/catalogs/kitchen")}
+          >
+            Kitchen
+          </button>
+        </Grid>
+        <Grid item xs={6} md={4}>
+          <button
+            className="app-button s-color full-width"
+            onClick={() => history.push("/catalogs/bathroom")}
+          >
+            Bathroom
+          </button>
+        </Grid>
+        <Grid item xs={6} md={4}>
+          <button
+            className="app-button p-color full-width"
+            onClick={() => history.push("/catalogs/outdoors")}
+          >
+            Outdoors
+          </button>
+        </Grid>
+        <Grid item xs={6} md={4}>
+          <button
+            className="app-button s-color full-width"
+            onClick={() => history.push("/catalogs/bedroom")}
+          >
+            Bedroom
+          </button>
+        </Grid>
+        <Grid item xs={6} md={4}>
+          <button
+            className="app-button p-color full-width"
+            onClick={() => history.push("/catalogs/livingroom")}
+          >
+            Living Room
+          </button>
+        </Grid>
+        <Grid item xs={6} md={4}>
+          <button
+            className="app-button s-color full-width"
+            onClick={() => history.push("/catalogs/utility")}
+          >
+            Utility
+          </button>
+        </Grid>
+      </Grid>
+      <h2>Featured Brands</h2>
+      <h3
+        align="center"
+        style={{
+          fontStyle: "italic",
+          width: "100%",
+          backgroundColor: "#F3F2F2",
+        }}
+      >
+        Fill your home with these brands
+      </h3>
+      <Grid item>
 
-export default CatalogPage
+      </Grid>
+    </div>
+  );
+};
+
+export default CatalogPage;

@@ -17,6 +17,14 @@ const routes = [
   },
   {
     route: (
+      <Route exact path="/home">
+        <HomePage />
+      </Route>
+    ),
+    accessLevel: 1,
+  },
+  {
+    route: (
       <Route exact path="/account">
         <AccountPage />
       </Route>

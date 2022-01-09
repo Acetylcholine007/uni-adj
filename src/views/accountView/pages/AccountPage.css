@@ -1,0 +1,61 @@
+.account-table {
+  width: 100%;
+  border-spacing: 0 1rem;
+  text-align: center;
+}
+
+.account-table-header td {
+  background-color: red;
+  color: white;
+  padding: 0.5rem !important;
+  font-weight: bold;
+}
+
+.account-table-header td:first-child {
+  border-right: 2px solid white;
+}
+
+.account-table-header td:last-child {
+  border-left: 2px solid white;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.account-avatar {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.image-container {
+  height: 0;
+  width: 12%;
+  padding-bottom: 12%;
+  background-color: red;
+}
+
+.account-stub {
+  height: 100%;
+  flex-grow: 1;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #c0c0c0;
+  border-radius: 2rem;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  box-sizing: border-box;
+}
+
+.account-stub h1, h3, h4 {
+    margin: 0.1rem 0;
+}
