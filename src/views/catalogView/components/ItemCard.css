@@ -1,0 +1,56 @@
+.item-container {
+    position: relative;
+    height: 100%;
+}
+
+.item-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px 1px #696969;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.item-badge {
+    position: absolute;
+    top: 1rem;
+    left: -2rem;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.item-image {
+    height: 30vh;
+    object-fit: contain;
+}
+
+.item-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F3F2F2;
+    text-align: center;
+    padding: 0rem 1rem;
+    flex-grow: 1;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.brown {
+    background-color: burlywood;
+}

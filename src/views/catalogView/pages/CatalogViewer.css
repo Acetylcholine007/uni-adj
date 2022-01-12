@@ -1,0 +1,10 @@
+.category-header {
+    height: 10rem;
+    width: 100%;
+    background-color: red;
+    font-size: 5rem;
+    display: flex;
+    align-items: flex-end;
+    color: white;
+    margin: 0 0 2rem 0;
+  }
