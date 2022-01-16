@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router";
+import DefaultPage from "../shared/pages/DefaultPage";
 import AccountPage from "../views/accountView/pages/AccountPage";
 import CatalogPage from "../views/catalogView/pages/CatalogPage";
 import CatalogViewer from "../views/catalogView/pages/CatalogViewer";
@@ -7,6 +8,7 @@ import ProductViewer from "../views/catalogView/pages/ProductViewer";
 import HomePage from "../views/homeView/pages/HomePage";
 import InventoryPage from "../views/inventoryView/pages/InventoryPage";
 import OrdersPage from "../views/ordersView/pages/OrdersPage";
+import { useUserContext } from "../shared/hooks/useUserContext";
 
 const routes = [
   {
@@ -31,7 +33,7 @@ const routes = [
         <AccountPage />
       </Route>
     ),
-    accessLevel: 1,
+    accessLevel: 2,
   },
   {
     route: (
@@ -63,7 +65,7 @@ const routes = [
         <InventoryPage />
       </Route>
     ),
-    accessLevel: 1,
+    accessLevel: 3,
   },
   {
     route: (
@@ -71,15 +73,25 @@ const routes = [
         <OrdersPage />
       </Route>
     ),
+    accessLevel: 3,
+  },
+  {
+    route: (
+      <Route path="*">
+        <DefaultPage />
+      </Route>
+    ),
     accessLevel: 1,
   },
 ];
 
-const Routes = ({ permissionLevel }) => {
+const Routes = () => {
+  const {user, accountType} = useUserContext();
+
   return (
     <Switch>
       {routes
-        .filter((route) => route.accessLevel <= permissionLevel)
+        .filter((route) => route.accessLevel <= accountType)
         .map((route) => route.route)}
     </Switch>
   );

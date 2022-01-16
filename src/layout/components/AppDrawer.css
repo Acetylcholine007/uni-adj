@@ -19,6 +19,7 @@
     box-sizing: border-box;
     font-weight: bold;
     padding-left: 2rem;
+    cursor: pointer;
 }
 
 .linkItem > svg {

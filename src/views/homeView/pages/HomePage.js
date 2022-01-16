@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { InventoryContext } from "../../../shared/contexts/InventoryContextProvider";
 import "./HomePage.css";
 
 const HomePage = () => {
+  const {
+    inventory: { products },
+  } = useContext(InventoryContext);
+
   return (
     <div>
       <div className="home-header">

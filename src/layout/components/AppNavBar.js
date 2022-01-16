@@ -1,9 +1,12 @@
 import { NotificationsActive, Search, ShoppingCart } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import React from "react";
+import { useUserContext } from "../../shared/hooks/useUserContext";
 import "./AppNavBar.css";
 
-const AppNavBar = ({setShowModal}) => {
+const AppNavBar = ({ setShowModal }) => {
+  const {user} = useUserContext();
+
   return (
     <div className="navbar">
       <div className="brand">
@@ -24,17 +27,20 @@ const AppNavBar = ({setShowModal}) => {
           <NotificationsActive />
         </IconButton>
       </span>
-      <div className="account" onClick={setShowModal}>
-        <div className="avatar-background">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/1200px-Ambersweet_oranges.jpg"
-            alt="background"
-            className="avatar"
-          />
-          <h4 className="profile-label">John</h4>
+      {user && (
+        <div className="account" onClick={setShowModal}>
+          <div className="avatar-background">
+            <img src={user.profileUri} alt="background" className="avatar" />
+            <h4 className="profile-label">{user.username}</h4>
+          </div>
+          <p className="signout">NOT YOU? SIGN OUT</p>
         </div>
-        <p className="signout">NOT YOU? SIGN OUT</p>
-      </div>
+      )}
+      {!user && (
+        <div className="account" onClick={setShowModal}>
+          <button className = 'app-button red'>AUTHENTICATE</button>
+        </div>
+      )}
     </div>
   );
 };

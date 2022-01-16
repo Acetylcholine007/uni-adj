@@ -1,73 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { InventoryContext } from "../../../shared/contexts/InventoryContextProvider";
 import "./InventoryPage.css";
 
-const items = [
-  {
-    itemNo: 1,
-    name: "Fan",
-    availablility: "Available",
-    count: 100,
-    price: 1000,
-  },
-  {
-    itemNo: 2,
-    name: "Ref",
-    availablility: "Available",
-    count: 100,
-    price: 1000,
-  },
-  {
-    itemNo: 3,
-    name: "TV",
-    availablility: "Available",
-    count: 100,
-    price: 1000,
-  },
-  {
-    itemNo: 4,
-    name: "Washing Machine",
-    availablility: "Available",
-    count: 100,
-    price: 1000,
-  },
-  {
-    itemNo: 5,
-    name: "AC Unit",
-    availablility: "Available",
-    count: 100,
-    price: 1000,
-  },
-  {
-    itemNo: 6,
-    name: "Iron",
-    availablility: "Available",
-    count: 100,
-    price: 1000,
-  },
-  {
-    itemNo: 7,
-    name: "LED Light",
-    availablility: "Available",
-    count: 100,
-    price: 1000,
-  },
-  {
-    itemNo: 8,
-    name: "Electrical Wire",
-    availablility: "Available",
-    count: 100,
-    price: 1000,
-  },
-  {
-    itemNo: 9,
-    name: "Switch",
-    availablility: "Available",
-    count: 100,
-    price: 1000,
-  },
-];
-
 const InventoryPage = () => {
+  const {
+    inventory: { products },
+  } = useContext(InventoryContext);
+
   return (
     <div>
       <h1 className="inventory-header">Inventory</h1>
@@ -82,12 +21,12 @@ const InventoryPage = () => {
           </tr>
         </thead>
         <tbody>
-          {items.map((item) => (
+          {products.map((item) => (
             <tr>
-              <td>{item.itemNo}</td>
+              <td>{item.productId}</td>
               <td>{item.name}</td>
-              <td>{item.availablility}</td>
-              <td>{item.count}</td>
+              <td>{item.stocks > 0 ? 'Available' : 'Depleted'}</td>
+              <td>{item.stocks}</td>
               <td>{item.price}</td>
             </tr>
           ))}

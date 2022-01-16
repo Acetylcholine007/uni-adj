@@ -6,30 +6,31 @@ const OrderContextProvider = ({ children }) => {
   const reducer = (state, action) => {
     switch (action.type) {
       case "ADD":
-        return { ...state, isLoggedIn: true, accountType: action.payload };
+        return { ...state, orders: [...state.orders, action.payload] };
       case "EDIT":
-        return { ...state, isLoggedIn: true, accountType: action.payload };
+        var newState = {...state};
+        //TODO: add edit order statement
+        return newState;
       case "DELETE":
-        return { ...state, isLoggedIn: false, accountType: 0 };
+        var newState = {...state};
+        //TODO: add remove order statement
+        return newState;
       default:
         return state;
     }
   };
 
   const [order, orderDispatch] = useReducer(reducer, {
-    isLoggedIn: true,
-    accountType: 2,
-    authSection: "LOGIN",
-    user: {
-      username: "Acetylcholine",
-      firstname: "Rahino",
-      lastname: "Quijano",
-      email: "test@gmail.com",
-      profileUri:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/1200px-Ambersweet_oranges.jpg",
-      backgroundUri:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/1200px-Ambersweet_oranges.jpg",
-    },
+    orders: [
+      {
+        orderId: "1",
+        userId: "1",
+        date: "1/8/2022",
+        list: [{ productId: "1", quantity: 1 }],
+        status: "Shipped",
+        convo: [],
+      },
+    ],
   });
 
   return (

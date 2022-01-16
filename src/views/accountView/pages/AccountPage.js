@@ -1,6 +1,8 @@
 import { Edit } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import React from "react";
+import { useOrderContext } from "../../../shared/hooks/useOrderContext";
+import { useUserContext } from "../../../shared/hooks/useUserContext";
 import OrderStub from "../components/OrderStub";
 import "./AccountPage.css";
 
@@ -47,22 +49,17 @@ const activeOrder = [
 ];
 
 const AccountPage = () => {
+  const {user} = useUserContext();
+  const {orders} = useOrderContext(user.userId);
+
   return (
     <div>
       <h1>Your Account</h1>
-      {/* <div className = "image-container">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/1200px-Ambersweet_oranges.jpg"
-            alt="Profile_Avatar"
-            className="account-avatar"
-          />
-        </div> */}
       <div className="account-info">
-        {/* <div className='image-wrapper'/> */}
         <div className="image-container">
           <div>
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/1200px-Ambersweet_oranges.jpg"
+              src={user.profileUri}
               alt="Profile_Avatar"
               className="account-avatar"
             />
@@ -70,9 +67,9 @@ const AccountPage = () => {
         </div>
         <div className="account-stub">
           <div>
-            <h1>John</h1>
-            <h3>john@gmail.com</h3>
-            <h4>09216498896</h4>
+            <h1>{`${user.firstname} ${user.lastname}`}</h1>
+            <h3>{user.email}</h3>
+            <h4>{user.contactNo}</h4>
           </div>
           <IconButton>
             <Edit />
@@ -88,7 +85,7 @@ const AccountPage = () => {
           </tr>
         </thead>
         <tbody>
-          {activeOrder.map((order) => (
+          {orders.filter((order) => order.status !== 'Complete').map((order) => (
             <OrderStub order={order} />
           ))}
         </tbody>
@@ -96,7 +93,7 @@ const AccountPage = () => {
       <h1>Order History</h1>
       <table className="account-table">
         <tbody>
-          {activeOrder.map((order) => (
+          {orders.filter((order) => order.status === 'Complete').map((order) => (
             <OrderStub order={order} />
           ))}
         </tbody>

@@ -12,7 +12,7 @@ import './Layout.css';
 const Layout = () => {
   const [showModal, setShowModal] = useState(false);
   const {
-    auth: { accountType, authSection },
+    auth: { authSection },
   } = useContext(AuthContext);
 
   const authSelector = (authType) => {
@@ -31,7 +31,7 @@ const Layout = () => {
       <AppDrawer />
       <div className='content-container'>
         <AppNavBar setShowModal={setShowModal}/>
-        <Routes permissionLevel={1}/>
+        <Routes/>
       </div>
       <AppModal showModal={showModal} setShowModal={setShowModal}>
         {authSelector(authSection)}

@@ -6,22 +6,12 @@ const AuthContextProvider = ({ children }) => {
   const reducer = (state, action) => {
     switch (action.type) {
       case "SIGNUP":
-        return { ...state, isLoggedIn: true, accountType: action.payload };
+        return { ...state, isLoggedIn: true, user: action.payload };
       case "LOGIN":
-        return { ...state, isLoggedIn: true, accountType: action.payload };
+        return { ...state, isLoggedIn: true, user: action.payload };
       case "LOGOUT":
-        return { ...state, isLoggedIn: false, accountType: 0 };
+        return { ...state, isLoggedIn: false, user: null };
       case "CHANGE_AUTH_SECTION":
-        return { ...state, authSection: action.payload };
-      case "ADD_ITEM":
-        return { ...state, authSection: action.payload };
-      case "EDIT_ITEM":
-        return { ...state, authSection: action.payload };
-      case "DELETE_ITEM":
-        return { ...state, authSection: action.payload };
-      case "EDIT PROFILE":
-        return { ...state, authSection: action.payload };
-      case "CHANGE_PASSWORD":
         return { ...state, authSection: action.payload };
       default:
         return state;
@@ -30,18 +20,8 @@ const AuthContextProvider = ({ children }) => {
 
   const [auth, authDispatch] = useReducer(reducer, {
     isLoggedIn: true,
-    accountType: 2,
     authSection: "LOGIN",
-    user: {
-      username: "Acetylcholine",
-      firstname: "Rahino",
-      lastname: "Quijano",
-      email: "test@gmail.com",
-      profileUri:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/1200px-Ambersweet_oranges.jpg",
-      backgroundUri:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/1200px-Ambersweet_oranges.jpg",
-    },
+    userId: "1",
   });
 
   return (

@@ -6,7 +6,7 @@ const OrderCard = ({ order }) => {
     <div className="order-card">
       <div className="order-card-header">
         <div className="order-card-circle" />
-        <h3>{order.user}</h3>
+        <h3>{order.user.username}</h3>
         <h3 style={{flexGrow: 1, textAlign: 'right'}}>{order.date}</h3>
       </div>
       <div className="order-card-content">

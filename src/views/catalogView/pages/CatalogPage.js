@@ -1,9 +1,14 @@
 import { Grid } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router";
+import { InventoryContext } from "../../../shared/contexts/InventoryContextProvider";
 
 const CatalogPage = () => {
+  const {
+    inventory: { brands },
+  } = useContext(InventoryContext);
   const history = useHistory();
+  
   return (
     <div>
       <h1>Categories:</h1>
