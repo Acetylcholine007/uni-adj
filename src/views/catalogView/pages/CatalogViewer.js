@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
 import "./CatalogViewer.css";
 import ItemCard from "../components/ItemCard";
+import { useHistory } from "react-router-dom";
 
 const items = [
   {
@@ -11,7 +12,7 @@ const items = [
     price: 50000,
     ratings: 4,
     badge: { label: "NEW!", color: "red" },
-    uri: 'http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg'
+    uri: "http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg",
   },
   {
     id: 2,
@@ -19,7 +20,7 @@ const items = [
     price: 70000,
     ratings: 4,
     badge: { label: "BRAND NEW!", color: "orange" },
-    uri: 'http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg'
+    uri: "http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg",
   },
   {
     id: 3,
@@ -27,7 +28,7 @@ const items = [
     price: 150000,
     ratings: 3,
     badge: null,
-    uri: 'http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg'
+    uri: "http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg",
   },
   {
     id: 4,
@@ -35,7 +36,7 @@ const items = [
     price: 18000,
     ratings: null,
     badge: { label: "SURPLUS", color: "brown" },
-    uri: 'http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg'
+    uri: "http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg",
   },
   {
     id: 5,
@@ -43,7 +44,7 @@ const items = [
     price: 50000,
     ratings: 4,
     badge: { label: "NEW!", color: "red" },
-    uri: 'http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg'
+    uri: "http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg",
   },
   {
     id: 6,
@@ -51,7 +52,7 @@ const items = [
     price: 70000,
     ratings: 4,
     badge: { label: "BRAND NEW!", color: "orange" },
-    uri: 'http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg'
+    uri: "http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg",
   },
   {
     id: 7,
@@ -59,7 +60,7 @@ const items = [
     price: 150000,
     ratings: 3,
     badge: null,
-    uri: 'http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg'
+    uri: "http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg",
   },
   {
     id: 8,
@@ -67,7 +68,7 @@ const items = [
     price: 18000,
     ratings: null,
     badge: { label: "SURPLUS", color: "brown" },
-    uri: 'http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg'
+    uri: "http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg",
   },
 ];
 
@@ -105,14 +106,22 @@ const getCategoryContent = (category) => {
 const CatalogViewer = () => {
   const catId = useParams().catId;
   const category = getCategoryContent(catId);
+  const history = useHistory();
+
   if (category)
     return (
       <div>
         <h1 className="category-header">{category.title}</h1>
         <Grid container spacing={8}>
           {items.map((item) => (
-            <Grid item xs = {6} md = {3}>
-              <ItemCard item = {item}/>
+            <Grid
+              item
+              xs={6}
+              md={3}
+              key={item.id}
+              onClick={() => history.push(`/catalogs/${catId}/${item.id}`)}
+            >
+              <ItemCard item={item} />
             </Grid>
           ))}
         </Grid>

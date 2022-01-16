@@ -1,0 +1,12 @@
+.app-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-modal-paper {
+    background-color: white;
+    box-shadow: 0 0 10px 1px #696969;
+    padding: 2rem;
+    border-radius: 2rem;
+}

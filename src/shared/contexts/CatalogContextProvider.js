@@ -1,34 +1,24 @@
 import React, { createContext, useReducer } from "react";
 
-export const AuthContext = createContext();
+export const CatalogContext = createContext();
 
-const AuthContextProvider = ({ children }) => {
+const CatalogContextProvider = ({ children }) => {
   const reducer = (state, action) => {
     switch (action.type) {
-      case "SIGNUP":
+      case "RATE":
         return { ...state, isLoggedIn: true, accountType: action.payload };
-      case "LOGIN":
+      case "ADD":
         return { ...state, isLoggedIn: true, accountType: action.payload };
-      case "LOGOUT":
+      case "EDIT":
         return { ...state, isLoggedIn: false, accountType: 0 };
-      case "CHANGE_AUTH_SECTION":
-        return { ...state, authSection: action.payload };
-      case "ADD_ITEM":
-        return { ...state, authSection: action.payload };
-      case "EDIT_ITEM":
-        return { ...state, authSection: action.payload };
-      case "DELETE_ITEM":
-        return { ...state, authSection: action.payload };
-      case "EDIT PROFILE":
-        return { ...state, authSection: action.payload };
-      case "CHANGE_PASSWORD":
+      case "DELETE":
         return { ...state, authSection: action.payload };
       default:
         return state;
     }
   };
 
-  const [auth, authDispatch] = useReducer(reducer, {
+  const [catalog, catalogDispatch] = useReducer(reducer, {
     isLoggedIn: true,
     accountType: 2,
     authSection: "LOGIN",
@@ -45,10 +35,10 @@ const AuthContextProvider = ({ children }) => {
   });
 
   return (
-    <AuthContext.Provider value={{ auth, authDispatch }}>
+    <CatalogContext.Provider value={{ catalog, catalogDispatch }}>
       {children}
-    </AuthContext.Provider>
+    </CatalogContext.Provider>
   );
 };
 
-export default AuthContextProvider;
+export default CatalogContextProvider;

@@ -1,0 +1,62 @@
+.signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.brand-container {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    flex-direction: row;
+}
+
+.brand-name {
+    color: red;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+.brand-label {
+    color: white;
+    background-color: black;
+    padding: 0;
+    margin: 0;
+}
+
+.brand-caption {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.caption-highlight {
+    color: red;
+}
+
+.form-field {
+    /* height: 100%; */
+    border-radius: 0;
+    border: 0;
+    box-shadow: inset 0 0 5px gray;
+    background-color: #F3F2F2;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+.text-button {
+    font-style: italic;
+    text-decoration: underline;
+    display: block;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.clickable {
+    cursor: pointer;
+}

@@ -1,34 +1,22 @@
 import React, { createContext, useReducer } from "react";
 
-export const AuthContext = createContext();
+export const OrderContext = createContext();
 
-const AuthContextProvider = ({ children }) => {
+const OrderContextProvider = ({ children }) => {
   const reducer = (state, action) => {
     switch (action.type) {
-      case "SIGNUP":
+      case "ADD":
         return { ...state, isLoggedIn: true, accountType: action.payload };
-      case "LOGIN":
+      case "EDIT":
         return { ...state, isLoggedIn: true, accountType: action.payload };
-      case "LOGOUT":
+      case "DELETE":
         return { ...state, isLoggedIn: false, accountType: 0 };
-      case "CHANGE_AUTH_SECTION":
-        return { ...state, authSection: action.payload };
-      case "ADD_ITEM":
-        return { ...state, authSection: action.payload };
-      case "EDIT_ITEM":
-        return { ...state, authSection: action.payload };
-      case "DELETE_ITEM":
-        return { ...state, authSection: action.payload };
-      case "EDIT PROFILE":
-        return { ...state, authSection: action.payload };
-      case "CHANGE_PASSWORD":
-        return { ...state, authSection: action.payload };
       default:
         return state;
     }
   };
 
-  const [auth, authDispatch] = useReducer(reducer, {
+  const [order, orderDispatch] = useReducer(reducer, {
     isLoggedIn: true,
     accountType: 2,
     authSection: "LOGIN",
@@ -45,10 +33,10 @@ const AuthContextProvider = ({ children }) => {
   });
 
   return (
-    <AuthContext.Provider value={{ auth, authDispatch }}>
+    <OrderContext.Provider value={{ order, orderDispatch }}>
       {children}
-    </AuthContext.Provider>
+    </OrderContext.Provider>
   );
 };
 
-export default AuthContextProvider;
+export default OrderContextProvider;

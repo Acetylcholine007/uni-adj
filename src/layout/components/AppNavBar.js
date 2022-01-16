@@ -3,7 +3,7 @@ import { IconButton } from "@mui/material";
 import React from "react";
 import "./AppNavBar.css";
 
-const AppNavBar = () => {
+const AppNavBar = ({setShowModal}) => {
   return (
     <div className="navbar">
       <div className="brand">
@@ -24,7 +24,7 @@ const AppNavBar = () => {
           <NotificationsActive />
         </IconButton>
       </span>
-      <div className="account">
+      <div className="account" onClick={setShowModal}>
         <div className="avatar-background">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/1200px-Ambersweet_oranges.jpg"

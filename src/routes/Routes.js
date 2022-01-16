@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router";
 import AccountPage from "../views/accountView/pages/AccountPage";
 import CatalogPage from "../views/catalogView/pages/CatalogPage";
 import CatalogViewer from "../views/catalogView/pages/CatalogViewer";
+import ProductViewer from "../views/catalogView/pages/ProductViewer";
 import HomePage from "../views/homeView/pages/HomePage";
 import InventoryPage from "../views/inventoryView/pages/InventoryPage";
 import OrdersPage from "../views/ordersView/pages/OrdersPage";
@@ -44,6 +45,14 @@ const routes = [
     route: (
       <Route exact path="/catalogs/:catId">
         <CatalogViewer />
+      </Route>
+    ),
+    accessLevel: 1,
+  },
+  {
+    route: (
+      <Route exact path="/catalogs/:catId/:productId">
+        <ProductViewer />
       </Route>
     ),
     accessLevel: 1,
