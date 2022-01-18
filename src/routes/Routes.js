@@ -13,7 +13,7 @@ import { useUserContext } from "../shared/hooks/useUserContext";
 const routes = [
   {
     route: (
-      <Route exact path="/">
+      <Route exact path="/" key='0'>
         <HomePage />
       </Route>
     ),
@@ -21,7 +21,7 @@ const routes = [
   },
   {
     route: (
-      <Route exact path="/home">
+      <Route exact path="/home" key='1'>
         <HomePage />
       </Route>
     ),
@@ -29,7 +29,7 @@ const routes = [
   },
   {
     route: (
-      <Route exact path="/account">
+      <Route exact path="/account" key='2'>
         <AccountPage />
       </Route>
     ),
@@ -37,7 +37,7 @@ const routes = [
   },
   {
     route: (
-      <Route exact path="/catalogs">
+      <Route exact path="/catalogs" key='3'>
         <CatalogPage />
       </Route>
     ),
@@ -45,7 +45,7 @@ const routes = [
   },
   {
     route: (
-      <Route exact path="/catalogs/:catId">
+      <Route exact path="/catalogs/:catId" key='4'>
         <CatalogViewer />
       </Route>
     ),
@@ -53,7 +53,7 @@ const routes = [
   },
   {
     route: (
-      <Route exact path="/catalogs/:catId/:productId">
+      <Route exact path="/catalogs/:catId/:productId" key='5'>
         <ProductViewer />
       </Route>
     ),
@@ -61,7 +61,7 @@ const routes = [
   },
   {
     route: (
-      <Route exact path="/inventory">
+      <Route exact path="/inventory" key='6'>
         <InventoryPage />
       </Route>
     ),
@@ -69,7 +69,7 @@ const routes = [
   },
   {
     route: (
-      <Route exact path="/orders">
+      <Route exact path="/orders" key='7'>
         <OrdersPage />
       </Route>
     ),
@@ -77,7 +77,7 @@ const routes = [
   },
   {
     route: (
-      <Route path="*">
+      <Route path="*" key='8'>
         <DefaultPage />
       </Route>
     ),

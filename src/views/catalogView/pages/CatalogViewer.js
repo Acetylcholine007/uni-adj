@@ -32,6 +32,10 @@ const getCategoryContent = (category) => {
       return {
         title: "Utility",
       };
+    case "all":
+      return {
+        title: "All Products",
+      };
     default:
       return null;
   }
@@ -49,19 +53,23 @@ const CatalogViewer = () => {
     return (
       <div>
         <h1 className="category-header">{category.title}</h1>
-        <Grid container spacing={8}>
-          {products.filter((product) => product.tags.includes(catId)).map((item) => (
-            <Grid
-              item
-              xs={6}
-              md={4}
-              lg={3}
-              key={item.id}
-              onClick={() => history.push(`/catalogs/${catId}/${item.id}`)}
-            >
-              <ItemCard item={item} />
-            </Grid>
-          ))}
+        <Grid container spacing={4}>
+          {products
+            .filter((product) =>
+              catId === "all" ? true : product.tags.includes(catId)
+            )
+            .map((item) => (
+              <Grid
+                item
+                xs={6}
+                md={4}
+                lg={3}
+                key={item.productId}
+                onClick={() => history.push(`/catalogs/${catId}/${item.productId}`)}
+              >
+                <ItemCard item={item} />
+              </Grid>
+            ))}
         </Grid>
       </div>
     );

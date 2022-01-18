@@ -1,0 +1,68 @@
+.cart-modal {
+    display: flex;
+    flex-direction: column;
+    /* padding: 1rem; */
+    height: 60vh;
+    width: 60vw;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+}
+
+.modal-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.modal-brand-name {
+    font-weight: bold;
+    color: red;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.modal-brand-label {
+    background-color: black;
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.header-title {
+    background-color: red;
+    color: white;
+    margin: 0 0 0 0.5rem;
+    padding: 0.5rem;
+    flex-grow: 1;
+}
+
+.cart-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.modal-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-button {
+    border: 0;
+    border-radius: 0.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: white;
+    background-color: red;
+}

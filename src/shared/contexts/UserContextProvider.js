@@ -30,10 +30,18 @@ const UserContextProvider = ({ children }) => {
         email: "admin@gmail.com",
         password: "1234",
         accountType: 3,
-        contactNo: '09212734539',
+        contactNo: "09212734539",
         profileUri:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/1200px-Ambersweet_oranges.jpg",
         orders: [],
+        cart: [
+          { productId: "1", quantity: 2 },
+          { productId: "1", quantity: 2 },
+          { productId: "1", quantity: 2 },
+          { productId: "1", quantity: 2 },
+          { productId: "1", quantity: 2 },
+          { productId: "1", quantity: 2 },
+        ],
       },
     ],
   });

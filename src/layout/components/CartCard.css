@@ -1,9 +1,9 @@
-.item-container {
+.cart-item-container {
     position: relative;
     height: 100%;
 }
 
-.item-card {
+.cart-item-card {
     display: flex;
     flex-direction: column;
     border-radius: 2rem;
@@ -11,28 +11,30 @@
     width: 100%;
     overflow: hidden;
     height: 100%;
+    cursor: pointer;
 }
 
-.item-badge {
+.cart-item-badge {
     position: absolute;
-    top: 1rem;
-    left: -2rem;
-    height: 4rem;
-    width: 4rem;
+    top: 0.5rem;
+    left: -1rem;
+    height: 3rem;
+    width: 3rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     text-align: center;
+    background-color: red;
 }
 
-.item-image {
-    height: 12rem;
+.cart-item-image {
+    height: 10rem;
     object-fit: contain;
 }
 
-.item-footer {
+.cart-item-footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -41,16 +43,4 @@
     text-align: center;
     padding: 0rem 1rem;
     flex-grow: 1;
-}
-
-.red {
-    background-color: red;
-}
-
-.orange {
-    background-color: orange;
-}
-
-.brown {
-    background-color: burlywood;
 }

@@ -3,6 +3,7 @@
     box-shadow: 0 0 10px 1px #696969;
     overflow: hidden;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .order-card-header {

@@ -6,10 +6,11 @@ const ItemCard = ({ item }) => {
   const ratingList = [];
   if (item.ratings != null)
     for (var rating in item.ratings) ratingList.push(item.ratings[rating]);
-    
-  const ratings = ratingList.length !== 0
-    ? ratingList.reduce((a, b) => a + b) / ratingList.length
-    : 0;
+
+  const ratings =
+    ratingList.length !== 0
+      ? ratingList.reduce((a, b) => a + b) / ratingList.length
+      : 0;
 
   return (
     <div className="item-container">
@@ -26,8 +27,8 @@ const ItemCard = ({ item }) => {
           {item.ratings && (
             <span>
               {[1, 2, 3, 4, 5].map((count) => {
-                if (count > ratings) return <StarBorder />;
-                else return <Star />;
+                if (count > ratings) return <StarBorder key={count} />;
+                else return <Star key={count} />;
               })}
             </span>
           )}

@@ -1,9 +1,9 @@
 import React from "react";
 import "./OrderStub.css";
 
-const OrderStub = ({ order }) => {
+const OrderStub = ({ order, setShowModal }) => {
   return (
-    <tr className="order-stub">
+    <tr className="order-stub" onClick={setShowModal}>
       <td colSpan={2}>
         <ul className="stub-list">
           {order.list.map((item) => (

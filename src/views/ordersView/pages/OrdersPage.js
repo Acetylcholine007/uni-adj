@@ -1,11 +1,14 @@
 import { Grid } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import AppModal from "../../../shared/components/AppModal";
+import OrderModal from "../../../shared/components/OrderModal";
 import { useOrderContext } from "../../../shared/hooks/useOrderContext";
 import OrderCard from "../components/OrderCard";
 import "./OrdersPage.css";
 
 const OrdersPage = () => {
   const {orders} = useOrderContext();
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div>
@@ -13,10 +16,13 @@ const OrdersPage = () => {
       <Grid container spacing={3}>
         {orders.map((order) => (
           <Grid item xs={12} md={4}>
-            <OrderCard order={order} />
+            <OrderCard order={order} setShowModal={setShowModal}/>
           </Grid>
         ))}
       </Grid>
+      <AppModal showModal={showModal} setShowModal={setShowModal}>
+        <OrderModal />
+      </AppModal>
     </div>
   );
 };

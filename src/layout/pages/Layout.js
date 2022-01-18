@@ -6,11 +6,13 @@ import LoginPage from "../../views/authView/pages/LoginPage";
 import SignupPage from "../../views/authView/pages/SignupPage";
 import AppDrawer from "../components/AppDrawer";
 import AppNavBar from "../components/AppNavBar";
+import CartModal from "../components/CartModal";
 
-import './Layout.css';
+import "./Layout.css";
 
 const Layout = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showCart, setShowCart] = useState(false);
   const {
     auth: { authSection },
   } = useContext(AuthContext);
@@ -27,14 +29,17 @@ const Layout = () => {
   };
 
   return (
-    <div className='main-container'>
+    <div className="main-container">
       <AppDrawer />
-      <div className='content-container'>
-        <AppNavBar setShowModal={setShowModal}/>
-        <Routes/>
+      <div className="content-container">
+        <AppNavBar setShowModal={setShowModal} setShowCart={setShowCart}/>
+        <Routes />
       </div>
       <AppModal showModal={showModal} setShowModal={setShowModal}>
         {authSelector(authSection)}
+      </AppModal>
+      <AppModal showModal={showCart} setShowModal={setShowCart}>
+        <CartModal />
       </AppModal>
     </div>
   );

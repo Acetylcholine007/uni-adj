@@ -1,0 +1,6 @@
+.viewer-image {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 5rem;
+  box-shadow: 0 0 10px 1px #696969;
+}

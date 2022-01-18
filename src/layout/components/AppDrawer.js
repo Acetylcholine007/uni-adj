@@ -53,6 +53,7 @@ const AppDrawer = () => {
                 activeChecker(link.route) ? "active" : ""
               }`}
               onClick={() => history.push(link.route)}
+              key = {link.label}
             >
               {link.icon} {link.label}
             </li>

@@ -4,7 +4,7 @@ import React from "react";
 import { useUserContext } from "../../shared/hooks/useUserContext";
 import "./AppNavBar.css";
 
-const AppNavBar = ({ setShowModal }) => {
+const AppNavBar = ({ setShowModal, setShowCart }) => {
   const {user} = useUserContext();
 
   return (
@@ -20,7 +20,7 @@ const AppNavBar = ({ setShowModal }) => {
         </button>
       </div>
       <span>
-        <IconButton aria-label="cart">
+        <IconButton aria-label="cart" onClick = {setShowCart}>
           <ShoppingCart />
         </IconButton>
         <IconButton aria-label="notifications">

@@ -31,9 +31,19 @@ const InventoryContextProvider = ({ children }) => {
         uri: "http://mobileimages.lowes.com/productimages/0107ce64-fd74-4761-926e-61c387930990/16436926.jpg",
         stocks: 10,
         promo: "HOT",
-        comment: [],
+        comment: [
+          { userId: "1", message: "Good" },
+          { userId: "2", message: "Good" },
+        ],
         brand: "1",
-        tags: ['kitchen', 'bathroom', 'outdoors', 'bedroom', 'livingroom', 'utility']
+        tags: [
+          "kitchen",
+          "bathroom",
+          "outdoors",
+          "bedroom",
+          "livingroom",
+          "utility",
+        ],
       },
       {
         productId: "2",
@@ -46,7 +56,14 @@ const InventoryContextProvider = ({ children }) => {
         promo: "HOT",
         comment: [],
         brand: "1",
-        tags: ['kitchen', 'bathroom', 'outdoors', 'bedroom', 'livingroom', 'utility']
+        tags: [
+          "kitchen",
+          "bathroom",
+          "outdoors",
+          "bedroom",
+          "livingroom",
+          "utility",
+        ],
       },
       {
         productId: "3",
@@ -59,7 +76,14 @@ const InventoryContextProvider = ({ children }) => {
         promo: "HOT",
         comment: [],
         brand: "1",
-        tags: ['kitchen', 'bathroom', 'outdoors', 'bedroom', 'livingroom', 'utility']
+        tags: [
+          "kitchen",
+          "bathroom",
+          "outdoors",
+          "bedroom",
+          "livingroom",
+          "utility",
+        ],
       },
       {
         productId: "4",
@@ -72,7 +96,14 @@ const InventoryContextProvider = ({ children }) => {
         promo: "HOT",
         comment: [],
         brand: "1",
-        tags: ['kitchen', 'bathroom', 'outdoors', 'bedroom', 'livingroom', 'utility']
+        tags: [
+          "kitchen",
+          "bathroom",
+          "outdoors",
+          "bedroom",
+          "livingroom",
+          "utility",
+        ],
       },
       {
         productId: "5",
@@ -85,7 +116,14 @@ const InventoryContextProvider = ({ children }) => {
         promo: "HOT",
         comment: [],
         brand: "1",
-        tags: ['kitchen', 'bathroom', 'outdoors', 'bedroom', 'livingroom', 'utility']
+        tags: [
+          "kitchen",
+          "bathroom",
+          "outdoors",
+          "bedroom",
+          "livingroom",
+          "utility",
+        ],
       },
       {
         productId: "6",
@@ -98,7 +136,14 @@ const InventoryContextProvider = ({ children }) => {
         promo: "HOT",
         comment: [],
         brand: "1",
-        tags: ['kitchen', 'bathroom', 'outdoors', 'bedroom', 'livingroom', 'utility']
+        tags: [
+          "kitchen",
+          "bathroom",
+          "outdoors",
+          "bedroom",
+          "livingroom",
+          "utility",
+        ],
       },
       {
         productId: "7",
@@ -111,7 +156,14 @@ const InventoryContextProvider = ({ children }) => {
         promo: "HOT",
         comment: [],
         brand: "1",
-        tags: ['kitchen', 'bathroom', 'outdoors', 'bedroom', 'livingroom', 'utility']
+        tags: [
+          "kitchen",
+          "bathroom",
+          "outdoors",
+          "bedroom",
+          "livingroom",
+          "utility",
+        ],
       },
       {
         productId: "8",
@@ -124,7 +176,14 @@ const InventoryContextProvider = ({ children }) => {
         promo: "HOT",
         comment: [],
         brand: "1",
-        tags: ['kitchen', 'bathroom', 'outdoors', 'bedroom', 'livingroom', 'utility']
+        tags: [
+          "kitchen",
+          "bathroom",
+          "outdoors",
+          "bedroom",
+          "livingroom",
+          "utility",
+        ],
       },
     ],
     brands: [
