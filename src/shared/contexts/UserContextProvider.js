@@ -30,6 +30,7 @@ const UserContextProvider = ({ children }) => {
         email: "admin@gmail.com",
         password: "1234",
         accountType: 3,
+        address: 'Philippines',
         contactNo: "09212734539",
         profileUri:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/1200px-Ambersweet_oranges.jpg",

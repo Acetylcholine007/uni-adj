@@ -1,9 +1,12 @@
 import React from "react";
 import "./OrderStub.css";
 
-const OrderStub = ({ order, setShowModal }) => {
+const OrderStub = ({ order, setShowModal, setTargetOrder }) => {
   return (
-    <tr className="order-stub" onClick={setShowModal}>
+    <tr className="order-stub" onClick={() => {
+      setTargetOrder(order);
+      setShowModal(true);
+    }}>
       <td colSpan={2}>
         <ul className="stub-list">
           {order.list.map((item) => (

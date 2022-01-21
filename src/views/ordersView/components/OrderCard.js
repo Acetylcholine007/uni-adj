@@ -1,9 +1,12 @@
 import React from "react";
 import "./OrderCard.css";
 
-const OrderCard = ({ order, setShowModal }) => {
+const OrderCard = ({ order, setShowModal, setTargetOrder }) => {
   return (
-    <div className="order-card" onClick={setShowModal}>
+    <div className="order-card" onClick={() => {
+      setTargetOrder(order);
+      setShowModal(true);
+    }}>
       <div className="order-card-header">
         <div className="order-card-circle" />
         <h3>{order.user.username}</h3>

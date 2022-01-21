@@ -1,4 +1,5 @@
 import "./App.css";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { BrowserRouter as Router } from "react-router-dom";
 import AuthContextProvider from "./shared/contexts/AuthContextProvider";
@@ -8,18 +9,22 @@ import InventoryContextProvider from "./shared/contexts/InventoryContextProvider
 import UserContextProvider from "./shared/contexts/UserContextProvider";
 
 function App() {
+  const theme = createTheme({});
+
   return (
-    <AuthContextProvider>
-      <OrderContextProvider>
-        <InventoryContextProvider>
-          <UserContextProvider>
-            <Router>
-              <Layout />
-            </Router>
-          </UserContextProvider>
-        </InventoryContextProvider>
-      </OrderContextProvider>
-    </AuthContextProvider>
+    <ThemeProvider theme={theme}>
+      <AuthContextProvider>
+        <OrderContextProvider>
+          <InventoryContextProvider>
+            <UserContextProvider>
+              <Router>
+                <Layout />
+              </Router>
+            </UserContextProvider>
+          </InventoryContextProvider>
+        </OrderContextProvider>
+      </AuthContextProvider>
+    </ThemeProvider>
   );
 }
 

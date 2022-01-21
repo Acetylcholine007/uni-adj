@@ -5,14 +5,18 @@ import AppModal from "../../../shared/components/AppModal";
 import OrderModal from "../../../shared/components/OrderModal";
 import { useOrderContext } from "../../../shared/hooks/useOrderContext";
 import { useUserContext } from "../../../shared/hooks/useUserContext";
+import EditAccountModal from "../components/EditAccountModal";
 import OrderStub from "../components/OrderStub";
 import "./AccountPage.css";
 
 const AccountPage = () => {
   const [showModal, setShowModal] = useState(false);
+  const [targetOrder, setTargetOrder] = useState(null);
+  const [showEditAccount, setShowEditAccount] = useState(false)
   const { user } = useUserContext();
   const { orders } = useOrderContext(user.userId);
 
+  console.log(targetOrder);
   return (
     <div>
       <h1>Your Account</h1>
@@ -32,7 +36,7 @@ const AccountPage = () => {
             <h3>{user.email}</h3>
             <h4>{user.contactNo}</h4>
           </div>
-          <IconButton>
+          <IconButton onClick={setShowEditAccount}>
             <Edit />
           </IconButton>
         </div>
@@ -49,7 +53,7 @@ const AccountPage = () => {
           {orders
             .filter((order) => order.status !== "Complete")
             .map((order) => (
-              <OrderStub order={order} setShowModal={setShowModal}/>
+              <OrderStub order={order} setShowModal={setShowModal} setTargetOrder={setTargetOrder}/>
             ))}
         </tbody>
       </table>
@@ -59,12 +63,15 @@ const AccountPage = () => {
           {orders
             .filter((order) => order.status === "Complete")
             .map((order) => (
-              <OrderStub order={order} setShowModal={setShowModal}/>
+              <OrderStub order={order} setShowModal={setShowModal} setTargetModal={setTargetOrder}/>
             ))}
         </tbody>
       </table>
-      <AppModal showModal={showModal} setShowModal={setShowModal}>
-        <OrderModal />
+      {targetOrder && <AppModal showModal={showModal} setShowModal={setShowModal}>
+        <OrderModal order={targetOrder}/>
+      </AppModal>}
+      <AppModal showModal={showEditAccount} setShowModal={setShowEditAccount}>
+        <EditAccountModal />
       </AppModal>
     </div>
   );

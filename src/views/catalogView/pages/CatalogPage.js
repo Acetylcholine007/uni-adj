@@ -1,14 +1,16 @@
 import { Grid } from "@mui/material";
 import React, { useContext } from "react";
+import Masonry from "react-masonry-css";
 import { useHistory } from "react-router";
 import { InventoryContext } from "../../../shared/contexts/InventoryContextProvider";
+import "./CatalogPage.css";
 
 const CatalogPage = () => {
   const {
     inventory: { brands },
   } = useContext(InventoryContext);
   const history = useHistory();
-  
+
   return (
     <div>
       <h1>Categories:</h1>
@@ -73,9 +75,32 @@ const CatalogPage = () => {
       >
         Fill your home with these brands
       </h3>
-      <Grid item>
-
-      </Grid>
+      {/* <Grid container spacing={2}>
+        {brands.map((brand, index) => (
+          <Grid key={index} item xs={2} sm={3} md={4}>
+            <img
+              src={brand.brandUri}
+              className="brand-banner"
+              alt={brand.name}
+            />
+          </Grid>
+        ))}
+      </Grid> */}
+      <Masonry
+        breakpointCols={{ default: 3, 1100: 2, 700: 1 }}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
+        {brands.map((brand, index) => (
+          <img
+            key={index}
+            src={brand.brandUri}
+            className="brand-banner"
+            alt={brand.name}
+            onClick={() => history.push('/catalogs/all')}
+          />
+        ))}
+      </Masonry>
     </div>
   );
 };
