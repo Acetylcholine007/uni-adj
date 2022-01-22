@@ -33,13 +33,16 @@
   width: 100%;
   border-radius: 50%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .image-container {
   height: 0;
   width: 12%;
   padding-bottom: 12%;
-  background-color: red;
+  position: relative;
 }
 
 .account-stub {

@@ -8,12 +8,11 @@ const UserContextProvider = ({ children }) => {
       case "ADD":
         return { ...state, users: [...state.users, action.payload] };
       case "UPDATE":
-        var newState = { ...state };
-        //TODO: add edit account statement
-        return newState;
-      case "CANGE_PASSWORD":
-        var newState = { ...state };
-        //TODO: add edit password statement
+        let newState = { ...state };
+        let index = newState.users.indexOf(
+          newState.users.find((user) => user.userId === action.payload.userId)
+        );
+        newState.users[index] = action.payload;
         return newState;
       default:
         return state;
@@ -30,7 +29,7 @@ const UserContextProvider = ({ children }) => {
         email: "admin@gmail.com",
         password: "1234",
         accountType: 3,
-        address: 'Philippines',
+        address: "Philippines",
         contactNo: "09212734539",
         profileUri:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Ambersweet_oranges.jpg/1200px-Ambersweet_oranges.jpg",

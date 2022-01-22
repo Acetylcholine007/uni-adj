@@ -75,17 +75,6 @@ const CatalogPage = () => {
       >
         Fill your home with these brands
       </h3>
-      {/* <Grid container spacing={2}>
-        {brands.map((brand, index) => (
-          <Grid key={index} item xs={2} sm={3} md={4}>
-            <img
-              src={brand.brandUri}
-              className="brand-banner"
-              alt={brand.name}
-            />
-          </Grid>
-        ))}
-      </Grid> */}
       <Masonry
         breakpointCols={{ default: 3, 1100: 2, 700: 1 }}
         className="my-masonry-grid"

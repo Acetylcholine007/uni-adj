@@ -4,13 +4,13 @@ import { UserContext } from "../contexts/UserContextProvider";
 
 export const useUserContext = () => {
   const {
-    auth: { userId },
+    auth: { userId }, authDispatch
   } = useContext(AuthContext);
   const {
-    users: { users },
+    users: { users }, userDispatch
   } = useContext(UserContext);
 
   const user = userId != null ? users.find((user) => user.userId === userId) : null;
   const accountType = user != null ? user.accountType : 1;
-  return {user, accountType};
+  return {user, accountType, authDispatch, userDispatch};
 }

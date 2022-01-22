@@ -22,13 +22,11 @@ const AccountPage = () => {
       <h1>Your Account</h1>
       <div className="account-info">
         <div className="image-container">
-          <div>
             <img
               src={user.profileUri}
               alt="Profile_Avatar"
               className="account-avatar"
             />
-          </div>
         </div>
         <div className="account-stub">
           <div>
@@ -71,7 +69,7 @@ const AccountPage = () => {
         <OrderModal order={targetOrder}/>
       </AppModal>}
       <AppModal showModal={showEditAccount} setShowModal={setShowEditAccount}>
-        <EditAccountModal />
+        <EditAccountModal showModal={showModal} setShowModal={setShowEditAccount}/>
       </AppModal>
     </div>
   );

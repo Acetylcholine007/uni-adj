@@ -57,6 +57,24 @@
     justify-content: stretch;
 }
 
+.form label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form input {
+    height: 2rem;
+    font-size: 1rem;
+    margin: 0.5rem 0 0.5rem 0.5rem;
+}
+
 .clickable {
     cursor: pointer;
+}
+
+.error {
+    margin: 0.5rem 0;
+    text-align: center;
+    color: red;
 }

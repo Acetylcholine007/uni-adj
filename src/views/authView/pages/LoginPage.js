@@ -1,12 +1,38 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router";
 import { AuthContext } from "../../../shared/contexts/AuthContextProvider";
+import { UserContext } from "../../../shared/contexts/UserContextProvider";
 import "./LoginPage.css";
 
-const LoginPage = ({ setShowModal }) => {
+const LoginPage = ({
+  loginHandler,
+  email,
+  setEmail,
+  password,
+  setPassword,
+  forgotPassword,
+  setForgotPassword,
+  incorrectCredentials,
+  setIncorrectCredentials,
+}) => {
   const { authDispatch } = useContext(AuthContext);
-  const history = useHistory();
+  const {
+    users: { users },
+  } = useContext(UserContext);
 
+  const checkCredentials = (email, password) => {
+    const result = users.find(
+      (user) => user.email === email && user.password === password
+    );
+    if (result === undefined) {
+      return null;
+    } else {
+      return result.userId;
+    }
+  };
+
+  if (forgotPassword) {
+    return <h1>Too Bad :-(</h1>;
+  }
   return (
     <div className="login">
       <div className="brand-contaner">
@@ -18,20 +44,43 @@ const LoginPage = ({ setShowModal }) => {
         </h4>
         <h2>Log In</h2>
         <form className="form">
-          <input type="text" className="form-field" label="Email" />
-          <input type="password" className="form-field" label="Password" />
+          <label>
+            Email
+            <input
+              type="text"
+              className="form-field"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </label>
+          <label>
+            Password
+            <input
+              type="password"
+              className="form-field"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
         </form>
+        {incorrectCredentials && <p className="error">Incorrect Credentials</p>}
         <button
           onClick={() => {
-            authDispatch({ type: "LOGIN", payload: 2 });
-            setShowModal(false);
-            history.push("/");
+            const result = checkCredentials(email, password);
+            if (result) {
+              setIncorrectCredentials(false);
+              loginHandler(result);
+            } else {
+              setIncorrectCredentials(true);
+            }
           }}
-          className = 'app-button p-color full-width'
+          className="app-button p-color full-width"
         >
           LOGIN
         </button>
-        <p className="text-button">Forgot Password?</p>
+        <p className="text-button" onClick={setForgotPassword}>
+          Forgot Password?
+        </p>
         <p align="center">
           New to UNI-ADJ?
           <span
