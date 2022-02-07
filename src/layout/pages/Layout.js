@@ -7,6 +7,7 @@ import { UserContext } from "../../shared/contexts/UserContextProvider";
 import LoginPage from "../../views/authView/pages/LoginPage";
 import SignupPage from "../../views/authView/pages/SignupPage";
 import AppDrawer from "../components/AppDrawer";
+import AppFooter from "../components/AppFooter";
 import AppNavBar from "../components/AppNavBar";
 import CartModal from "../components/CartModal";
 
@@ -122,6 +123,7 @@ const Layout = () => {
       <div className="content-container">
         <AppNavBar setShowModal={setShowModal} setShowCart={setShowCart} />
         <Routes />
+        <AppFooter />
       </div>
       <AppModal showModal={showModal} setShowModal={showModalHandler}>
         {authSelector(authSection)}
