@@ -4,15 +4,17 @@ export const OrderContext = createContext();
 
 const OrderContextProvider = ({ children }) => {
   const reducer = (state, action) => {
+    let newState = {...state};
+    let index;
     switch (action.type) {
-      case "ADD":
-        return { ...state, orders: [...state.orders, action.payload] };
+      case "ADD_ORDER":
+        let orderId = parseInt(newState.orders[-1].orderId) + 1;
+        newState.users[index].orders.push({orderId, ...action.payload.item});
+        return newState;
       case "EDIT":
-        var newState = {...state};
         //TODO: add edit order statement
         return newState;
       case "DELETE":
-        var newState = {...state};
         //TODO: add remove order statement
         return newState;
       default:

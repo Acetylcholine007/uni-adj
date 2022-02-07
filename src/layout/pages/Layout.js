@@ -127,7 +127,7 @@ const Layout = () => {
         {authSelector(authSection)}
       </AppModal>
       {isLoggedIn && (
-        <AppModal showModal={showCart} setShowModal={setShowModal}>
+        <AppModal showModal={showCart} setShowModal={setShowCart}>
           <CartModal />
         </AppModal>
       )}

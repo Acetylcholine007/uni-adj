@@ -9,6 +9,7 @@ import HomePage from "../views/homeView/pages/HomePage";
 import InventoryPage from "../views/inventoryView/pages/InventoryPage";
 import OrdersPage from "../views/ordersView/pages/OrdersPage";
 import { useUserContext } from "../shared/hooks/useUserContext";
+import CheckoutPage from "../views/accountView/pages/CheckoutPage";
 
 const routes = [
   {
@@ -31,6 +32,14 @@ const routes = [
     route: (
       <Route exact path="/account" key='2'>
         <AccountPage />
+      </Route>
+    ),
+    accessLevel: 2,
+  },
+  {
+    route: (
+      <Route exact path="/account/checkout" key='2'>
+        <CheckoutPage />
       </Route>
     ),
     accessLevel: 2,
