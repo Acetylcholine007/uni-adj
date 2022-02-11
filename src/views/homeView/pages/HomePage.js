@@ -1,7 +1,12 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { InventoryContext } from "../../../shared/contexts/InventoryContextProvider";
+import FeatureCard from "../components/FeatureCard";
+import { SliderData } from "../components/SliderData";
+
+
 import "./HomePage.css";
+
 
 const HomePage = () => {
   const {
@@ -11,7 +16,8 @@ const HomePage = () => {
 
   return (
     <div>
-      <div className="home-header">
+      <div><FeatureCard slides={SliderData}/></div>
+      <div className="home-header"> 
         <h1 className="header-text">What's New?</h1>
         <p className="home-link" onClick={() => history.push('./catalogs/all')}>View More</p>
       </div>
