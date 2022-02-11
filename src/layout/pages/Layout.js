@@ -130,7 +130,7 @@ const Layout = () => {
       </AppModal>
       {isLoggedIn && (
         <AppModal showModal={showCart} setShowModal={setShowCart}>
-          <CartModal />
+          <CartModal setShowCart={setShowCart} />
         </AppModal>
       )}
     </div>

@@ -17,7 +17,6 @@ const ProductViewer = () => {
   const product = products.find((product) => product.productId === productId);
 
   const cartHandler = (pid) => {
-    console.log("EXECUTE");
     userDispatch({
       type: "ADD_CART",
       payload: {
@@ -27,15 +26,15 @@ const ProductViewer = () => {
     });
   };
 
-  const buyHandler = (pid) => {
+  const buyHandler = (product) => {
     userDispatch({
-      type: "ADD_CART",
+      type: "SET_SELECTED_ITEMS",
       payload: {
         userId: user.userId,
-        item: { productId: pid, quantity: 1 },
+        selectedItems: [{ ...product, quantity: 1 }],
       },
     });
-    history.push('/account');
+    history.push('/account/checkout');
   };
 
   if (product !== undefined) {
@@ -65,7 +64,7 @@ const ProductViewer = () => {
             </button>
             <button
               className="app-button red"
-              onClick={() => buyHandler(product.productId)}
+              onClick={() => buyHandler(product)}
             >
               BUY NOW
             </button>

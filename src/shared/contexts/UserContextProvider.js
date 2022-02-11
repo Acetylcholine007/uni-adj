@@ -15,12 +15,27 @@ const reducer = (state, action) => {
       newState.users[index] = action.payload;
       return newState;
     case "ADD_CART":
-      console.log(newState);
       index = newState.users.indexOf(
         newState.users.find((user) => user.userId === action.payload.userId)
       );
-      newState.users[index].cart.push(action.payload.item);
-      console.log(newState);
+      const item = newState.users[index].cart.find((item) => item.productId === action.payload.item.productId)
+      if(item !== undefined) {
+        item.quantity += 1;
+      } else {
+        newState.users[index].cart.push(action.payload.item);
+      }
+      return newState;
+    case "REMOVE_CART":
+      index = newState.users.indexOf(
+        newState.users.find((user) => user.userId === action.payload.userId)
+      );
+      newState.users[index].cart = newState.users[index].cart.filter((item) => item.productId !== action.payload.productId);
+      return newState;
+    case "SET_SELECTED_ITEMS":
+      index = newState.users.indexOf(
+        newState.users.find((user) => user.userId === action.payload.userId)
+      );
+      newState.users[index].selectedItems = action.payload.selectedItems;
       return newState;
     default:
       return state;
@@ -45,6 +60,9 @@ const UserContextProvider = ({ children }) => {
         cart: [
           { productId: "1", quantity: 2 },
         ],
+        selectedItems: [
+
+        ]
       },
     ],
   });

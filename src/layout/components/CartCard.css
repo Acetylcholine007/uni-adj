@@ -29,6 +29,21 @@
     background-color: red;
 }
 
+.cart-item-badge-right {
+    position: absolute;
+    top: 4rem;
+    left: -1rem;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    background-color: red;
+}
+
 .cart-item-image {
     height: 10rem;
     object-fit: contain;
