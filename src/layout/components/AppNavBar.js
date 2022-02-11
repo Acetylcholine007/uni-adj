@@ -12,8 +12,7 @@ const AppNavBar = ({ setShowModal, setShowCart }) => {
   return (
     <div className="navbar">
       <div className="brand">
-        <h1 className="brand-name">UNI-ADJ</h1>
-        <h3 className="brand-label">APPLIANCES TRADING</h3>
+        <img src= "/uniadjlogo.png" className="logo"/>
       </div>
       <div className="search">
         <input type="text" className="search-field" />

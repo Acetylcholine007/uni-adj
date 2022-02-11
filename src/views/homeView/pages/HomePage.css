@@ -9,3 +9,80 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+.Slider{
+    position: relative;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white
+    ;
+
+}
+
+.image{
+    width: 1500px;
+    background-color: white;
+    
+}
+
+.right-arrow{
+    opacity: 0.5;
+    position: absolute;
+    top: 40%;
+    right: 0.5px;
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}
+
+.left-arrow{
+    position: absolute;
+    opacity: 0.5;
+    top: 40%;
+    left: 0.5px;
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
+}
+
+.left-arrow:hover{
+    opacity: 1;
+}
+
+.right-arrow:hover{
+    opacity: 1;
+}
+
+.right-arrow:active{
+    transform: scale(0.9);
+    opacity: 1;
+}
+
+.left-arrow:active{
+    transform: scale(0.9);
+    opacity: 1;
+}
+
+
+.slide{
+    opacity: 0;
+    transition-duration: 1s ease;
+    animation: 2s slider infinite;
+}
+
+.slide.active{
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.02);
+ 
+}
+
+.FeatureCard{
+    background-color: white;
+}
