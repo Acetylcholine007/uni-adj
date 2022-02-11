@@ -24,6 +24,13 @@
   object-fit: cover;
 }
 
+.logo {
+    margin-top: 50px;
+    padding: 0;
+    width: 30rem;
+    object-fit: contain;
+}
+
 .account {
     display: flex;
     flex-direction: column;
