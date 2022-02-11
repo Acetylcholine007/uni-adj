@@ -22,6 +22,9 @@ const CartCard = ({
     undefined;
 
   const removeHandler = (productId) => {
+    setSelectedItems(
+      selectedItems.filter((item) => item.productId !== product.productId)
+    );
     userDispatch({
       type: "REMOVE_CART",
       payload: { userId: user.userId, productId },

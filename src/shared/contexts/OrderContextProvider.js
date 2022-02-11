@@ -4,11 +4,10 @@ export const OrderContext = createContext();
 
 const reducer = (state, action) => {
   let newState = {...state};
-  let index;
   switch (action.type) {
     case "ADD_ORDER":
-      let orderId = parseInt(newState.orders[-1].orderId) + 1;
-      newState.users[index].orders.push({orderId, ...action.payload.item});
+      let orderId = newState.orders.length !== 0 ? parseInt(newState.orders.at(-1).orderId) + 1 : 1;
+      newState.orders.push({orderId: orderId.toString(), ...action.payload});
       return newState;
     case "EDIT":
       //TODO: add edit order statement
