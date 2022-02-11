@@ -2,26 +2,26 @@ import React, { createContext, useReducer } from "react";
 
 export const OrderContext = createContext();
 
-const OrderContextProvider = ({ children }) => {
-  const reducer = (state, action) => {
-    let newState = {...state};
-    let index;
-    switch (action.type) {
-      case "ADD_ORDER":
-        let orderId = parseInt(newState.orders[-1].orderId) + 1;
-        newState.users[index].orders.push({orderId, ...action.payload.item});
-        return newState;
-      case "EDIT":
-        //TODO: add edit order statement
-        return newState;
-      case "DELETE":
-        //TODO: add remove order statement
-        return newState;
-      default:
-        return state;
-    }
-  };
+const reducer = (state, action) => {
+  let newState = {...state};
+  let index;
+  switch (action.type) {
+    case "ADD_ORDER":
+      let orderId = parseInt(newState.orders[-1].orderId) + 1;
+      newState.users[index].orders.push({orderId, ...action.payload.item});
+      return newState;
+    case "EDIT":
+      //TODO: add edit order statement
+      return newState;
+    case "DELETE":
+      //TODO: add remove order statement
+      return newState;
+    default:
+      return state;
+  }
+};
 
+const OrderContextProvider = ({ children }) => {
   const [order, orderDispatch] = useReducer(reducer, {
     orders: [
       {

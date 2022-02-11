@@ -2,32 +2,32 @@ import React, { createContext, useReducer } from "react";
 
 export const UserContext = createContext();
 
-const UserContextProvider = ({ children }) => {
-  const reducer = (state, action) => {
-    let newState = { ...state };
-    let index;
-    switch (action.type) {
-      case "ADD":
-        return { ...state, users: [...state.users, action.payload] };
-      case "UPDATE":
-        index = newState.users.indexOf(
-          newState.users.find((user) => user.userId === action.payload.userId)
-        );
-        newState.users[index] = action.payload;
-        return newState;
-      case "ADD_CART":
-        console.log(newState);
-        index = newState.users.indexOf(
-          newState.users.find((user) => user.userId === action.payload.userId)
-        );
-        newState.users[index].cart.push(action.payload.item);
-        console.log(newState);
-        return newState;
-      default:
-        return state;
-    }
-  };
+const reducer = (state, action) => {
+  let newState = { ...state };
+  let index;
+  switch (action.type) {
+    case "ADD":
+      return { ...state, users: [...state.users, action.payload] };
+    case "UPDATE":
+      index = newState.users.indexOf(
+        newState.users.find((user) => user.userId === action.payload.userId)
+      );
+      newState.users[index] = action.payload;
+      return newState;
+    case "ADD_CART":
+      console.log(newState);
+      index = newState.users.indexOf(
+        newState.users.find((user) => user.userId === action.payload.userId)
+      );
+      newState.users[index].cart.push(action.payload.item);
+      console.log(newState);
+      return newState;
+    default:
+      return state;
+  }
+};
 
+const UserContextProvider = ({ children }) => {
   const [users, userDispatch] = useReducer(reducer, {
     users: [
       {

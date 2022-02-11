@@ -2,23 +2,24 @@ import React, { createContext, useReducer } from "react";
 
 export const InventoryContext = createContext();
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "ADD":
+      return { ...state, products: [...state.products, action.payload] };
+    case "EDIT":
+      var newState = { ...state };
+      //TODO: add edit product statement
+      return newState;
+    case "DELETE":
+      var newState = { ...state };
+      //TODO: add remove product statement
+      return newState;
+    default:
+      return state;
+  }
+};
+
 const InventoryContextProvider = ({ children }) => {
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "ADD":
-        return { ...state, products: [...state.products, action.payload] };
-      case "EDIT":
-        var newState = { ...state };
-        //TODO: add edit product statement
-        return newState;
-      case "DELETE":
-        var newState = { ...state };
-        //TODO: add remove product statement
-        return newState;
-      default:
-        return state;
-    }
-  };
 
   const [inventory, inventoryDispatch] = useReducer(reducer, {
     products: [
