@@ -3,6 +3,7 @@ import React, { createContext, useReducer } from "react";
 export const OrderContext = createContext();
 
 const reducer = (state, action) => {
+  console.log(action.payload);
   let newState = { ...state };
   let order = newState.orders.find(
     (item) => item.orderId === action.payload.orderId
@@ -22,7 +23,11 @@ const reducer = (state, action) => {
       order.status = action.payload.status;
       return newState;
     case "ATTACH_MESSAGE":
-      order.convo.push(action.payload.message);
+      order.convo.push({
+        userId: action.payload.userId,
+        message: action.payload.message,
+        datetime: action.payload.datetime,
+      });
       return newState;
     default:
       return state;

@@ -8,8 +8,8 @@ import {
   Rating,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import React, { useContext, useEffect } from "react";
-import { OrderContext } from "../contexts/OrderContextProvider";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../contexts/AuthContextProvider";
 import { useOrderContext } from "../hooks/useOrderContext";
 import "./OrderModal.css";
 
@@ -41,14 +41,31 @@ const useStyles = makeStyles((theme) => ({
 
 const OrderModal = ({ orderId, isForAdmin }) => {
   const classes = useStyles();
+  const {
+    auth: { userId },
+  } = useContext(AuthContext);
   const { orders, orderDispatch, inventoryDispatch } = useOrderContext();
   const order = orders.find((item) => item.orderId === orderId);
+  const [message, setMessage] = useState("");
 
   const statusHandler = (event) => {
     orderDispatch({
       type: "SET_ORDER_STATUS",
       payload: { orderId: order.orderId, status: event.target.value },
     });
+  };
+
+  const messageHandler = () => {
+    orderDispatch({
+      type: "ATTACH_MESSAGE",
+      payload: {
+        orderId: order.orderId,
+        userId,
+        message,
+        datetime: new Date().toDateString(),
+      },
+    });
+    setMessage("");
   };
 
   return (
@@ -160,14 +177,23 @@ const OrderModal = ({ orderId, isForAdmin }) => {
               className={`${classes.modalListContainer} ${classes.subPanelBorder}`}
             >
               {order.convo.map((item) => (
-                <li className="convo-item">
+                <li className={`convo-item ${item.userId === userId ? 'convo-right' : 'convo-left'}`}>
                   <p>{item.message}</p>
+                  <p style={{ fontSize: "0.7rem", alignSelf: "flex-end" }}>
+                    {item.datetime}
+                  </p>
                 </li>
               ))}
             </ul>
             <div className="chat-area">
-              <input type="text" className="chat-field" />
-              <IconButton aria-label="send">
+              <textarea
+              value = {message}
+                cols="40"
+                rows="5"
+                className="chat-field"
+                onChange={(e) => setMessage(e.target.value)}
+              />
+              <IconButton aria-label="send" onClick={messageHandler}>
                 <Send />
               </IconButton>
             </div>
