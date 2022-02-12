@@ -4,6 +4,9 @@ export const OrderContext = createContext();
 
 const reducer = (state, action) => {
   let newState = { ...state };
+  let order = newState.orders.find(
+    (item) => item.orderId === action.payload.orderId
+  );
   switch (action.type) {
     case "ADD_ORDER":
       let orderId =
@@ -12,18 +15,14 @@ const reducer = (state, action) => {
           : 1;
       newState.orders.push({ orderId: orderId.toString(), ...action.payload });
       return newState;
-    case "EDIT":
-      //TODO: add edit order statement
-      return newState;
     case "DELETE":
-      //TODO: add remove order statement
+      newState.orders.filter((item) => item.orderId !== action.payload);
       return newState;
     case "SET_ORDER_STATUS":
-      console.log(action.payload);
-      let order = newState.orders.find(
-        (item) => item.orderId === action.payload.orderId
-      );
       order.status = action.payload.status;
+      return newState;
+    case "ATTACH_MESSAGE":
+      order.convo.push(action.payload.message);
       return newState;
     default:
       return state;

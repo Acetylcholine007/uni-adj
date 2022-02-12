@@ -62,7 +62,15 @@ const routes = [
   },
   {
     route: (
-      <Route exact path="/catalogs/:catId/:productId" key='5'>
+      <Route exact path="/catalogs/:catId/:query" key='5'>
+        <CatalogViewer />
+      </Route>
+    ),
+    accessLevel: 1,
+  },
+  {
+    route: (
+      <Route exact path="/catalogs/:catId/:query/:productId" key='6'>
         <ProductViewer />
       </Route>
     ),
@@ -70,7 +78,7 @@ const routes = [
   },
   {
     route: (
-      <Route exact path="/inventory" key='6'>
+      <Route exact path="/inventory" key='7'>
         <InventoryPage />
       </Route>
     ),
@@ -78,7 +86,7 @@ const routes = [
   },
   {
     route: (
-      <Route exact path="/orders" key='7'>
+      <Route exact path="/orders" key='8'>
         <OrdersPage />
       </Route>
     ),
@@ -86,7 +94,7 @@ const routes = [
   },
   {
     route: (
-      <Route path="*" key='8'>
+      <Route path="*" key='9'>
         <DefaultPage />
       </Route>
     ),

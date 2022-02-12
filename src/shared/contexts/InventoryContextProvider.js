@@ -3,16 +3,21 @@ import React, { createContext, useReducer } from "react";
 export const InventoryContext = createContext();
 
 const reducer = (state, action) => {
+  let newState = { ...state };
   switch (action.type) {
     case "ADD":
       return { ...state, products: [...state.products, action.payload] };
     case "EDIT":
-      var newState = { ...state };
       //TODO: add edit product statement
       return newState;
     case "DELETE":
-      var newState = { ...state };
       //TODO: add remove product statement
+      return newState;
+    case "RATE":
+      let product = newState.roducts.find(
+        (item) => item.productId === action.payload.productId
+      );
+      product.ratings[action.payload.userId] = action.payload.rating;
       return newState;
     default:
       return state;
@@ -20,13 +25,12 @@ const reducer = (state, action) => {
 };
 
 const InventoryContextProvider = ({ children }) => {
-
   const [inventory, inventoryDispatch] = useReducer(reducer, {
     products: [
       {
         productId: "1",
         name: "Samsung Inverter Refrigerator",
-        description: 'Product description',
+        description: "Product description",
         price: 50000,
         ratings: { 1: 4, 2: 3 },
         badge: { label: "NEW!", color: "red" },
@@ -50,7 +54,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "2",
         name: "Samsung Side by Side Refrigerator",
-        description: 'Product description',
+        description: "Product description",
         price: 70000,
         ratings: { 1: 4, 2: 3 },
         badge: { label: "BRAND NEW!", color: "orange" },
@@ -71,7 +75,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "3",
         name: "4-Door French Refrigerator",
-        description: 'Product description',
+        description: "Product description",
         price: 150000,
         ratings: { 1: 1, 2: 3 },
         badge: null,
@@ -92,7 +96,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "4",
         name: "Samsung Inverter Refrigerator",
-        description: 'Product description',
+        description: "Product description",
         price: 18000,
         ratings: null,
         badge: { label: "SURPLUS", color: "brown" },
@@ -113,7 +117,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "5",
         name: "Samsung Inverter Refrigerator",
-        description: 'Product description',
+        description: "Product description",
         price: 50000,
         ratings: { 1: 5, 2: 3 },
         badge: { label: "NEW!", color: "red" },
@@ -134,7 +138,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "6",
         name: "Samsung Side by Side Refrigerator",
-        description: 'Product description',
+        description: "Product description",
         price: 70000,
         ratings: { 1: 5, 2: 5 },
         badge: { label: "BRAND NEW!", color: "orange" },
@@ -155,7 +159,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "7",
         name: "4-Door French Refrigerator",
-        description: 'Product description',
+        description: "Product description",
         price: 150000,
         ratings: { 1: 1, 2: 0 },
         badge: null,
@@ -176,7 +180,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "8",
         name: "Samsung Inverter Refrigerator",
-        description: 'Product description',
+        description: "Product description",
         price: 18000,
         ratings: null,
         badge: { label: "SURPLUS", color: "brown" },
@@ -229,8 +233,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         brandId: "6",
         name: "Yamaha",
-        brandUri:
-          "https://www.yamaha-motor.com.ph/yamaha-official-logo.jpg",
+        brandUri: "https://www.yamaha-motor.com.ph/yamaha-official-logo.jpg",
       },
       {
         brandId: "7",

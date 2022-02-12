@@ -46,6 +46,7 @@ const CatalogViewer = () => {
     inventory: { products },
   } = useContext(InventoryContext);
   const catId = useParams().catId;
+  const query = useParams().query ?? "";
   const category = getCategoryContent(catId);
   const history = useHistory();
 
@@ -58,6 +59,13 @@ const CatalogViewer = () => {
             .filter((product) =>
               catId === "all" ? true : product.tags.includes(catId)
             )
+            .filter((item) => {
+              if (query === "") {
+                return true;
+              } else {
+                return item.name.toLowerCase().includes(query.toLowerCase());
+              }
+            })
             .map((item) => (
               <Grid
                 item
@@ -65,7 +73,9 @@ const CatalogViewer = () => {
                 md={4}
                 lg={3}
                 key={item.productId}
-                onClick={() => history.push(`/catalogs/${catId}/${item.productId}`)}
+                onClick={() =>
+                  history.push(`/catalogs/${catId}/${query === "" ? "null" : query}/${item.productId}`)
+                }
               >
                 <ItemCard item={item} />
               </Grid>
