@@ -123,6 +123,16 @@ const Layout = () => {
       <div className="content-container">
         <AppNavBar setShowModal={setShowModal} setShowCart={setShowCart} />
         <Routes />
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         <AppFooter />
       </div>
       <AppModal showModal={showModal} setShowModal={showModalHandler}>
