@@ -4,7 +4,7 @@ import "./OrderStub.css";
 const OrderStub = ({ order, setShowModal, setTargetOrder }) => {
   return (
     <tr className="order-stub" onClick={() => {
-      setTargetOrder(order);
+      setTargetOrder(order.orderId);
       setShowModal(true);
     }}>
       <td colSpan={2}>

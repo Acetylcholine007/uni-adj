@@ -12,6 +12,7 @@ export const useOrderContext = (userId = null) => {
   } = useContext(UserContext);
   const {
     order: { orders },
+    orderDispatch,
   } = useContext(OrderContext);
 
   var filteredOrders = orders;
@@ -33,5 +34,5 @@ export const useOrderContext = (userId = null) => {
     };
   });
 
-  return { orders: newOrders };
+  return { orders: newOrders, orderDispatch };
 };

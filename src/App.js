@@ -7,9 +7,15 @@ import Layout from "./layout/pages/Layout";
 import OrderContextProvider from "./shared/contexts/OrderContextProvider";
 import InventoryContextProvider from "./shared/contexts/InventoryContextProvider";
 import UserContextProvider from "./shared/contexts/UserContextProvider";
+import { grey, red } from "@mui/material/colors";
 
 function App() {
-  const theme = createTheme({});
+  const theme = createTheme({
+    palette: {
+      primary: red,
+      secondary: grey
+    },
+  });
 
   return (
     <ThemeProvider theme={theme}>

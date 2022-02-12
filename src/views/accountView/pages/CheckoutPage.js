@@ -85,7 +85,42 @@ const CheckoutPage = () => {
             <Edit />
           </IconButton>
         </div>
-        <ul className={classes.modalListContainer}>
+        <table className="checkout-table">
+          <thead className="checkout-table-header">
+            <tr>
+              <td colSpan={2}>ITEM</td>
+              <td>QUANTITY</td>
+              <td>UNIT PRICE</td>
+              <td>AMOUNT</td>
+            </tr>
+          </thead>
+          <tbody>
+            {user.selectedItems.map((item) => (
+              <tr className="checkout-stub">
+                <td>
+                  <img
+                    src={item.uri}
+                    alt="item_picture"
+                    className="order-item-pic"
+                  />
+                </td>
+                <td>
+                  <h3>{item.name}</h3>
+                </td>
+                <td>
+                  <h3>{`x ${item.quantity}`}</h3>
+                </td>
+                <td>
+                  <h3>{`P ${item.price}`}</h3>
+                </td>
+                <td>
+                  <h3>{`P ${item.price * item.quantity}`}</h3>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {/* <ul className={classes.modalListContainer}>
           {user.selectedItems.map((item) => (
             <li className="order-item">
               <img
@@ -98,7 +133,7 @@ const CheckoutPage = () => {
               <h3>{`P ${item.price}`}</h3>
             </li>
           ))}
-        </ul>
+        </ul> */}
         <Divider />
         <Grid container>
           <Grid item xs={12} md={6}>

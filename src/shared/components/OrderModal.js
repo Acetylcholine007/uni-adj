@@ -1,7 +1,15 @@
 import { Send } from "@mui/icons-material";
-import { Grid, IconButton } from "@mui/material";
+import {
+  Grid,
+  IconButton,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+} from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { OrderContext } from "../contexts/OrderContextProvider";
+import { useOrderContext } from "../hooks/useOrderContext";
 import "./OrderModal.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -30,8 +38,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const OrderModal = ({ order, isForAdmin }) => {
+const OrderModal = ({ orderId, isForAdmin }) => {
   const classes = useStyles();
+  const { orders, orderDispatch } = useOrderContext();
+  const order = orders.find((item) => item.orderId === orderId);
+
+  const statusHandler = (event) => {
+    orderDispatch({
+      type: "SET_ORDER_STATUS",
+      payload: { orderId: order.orderId, status: event.target.value },
+    });
+  };
 
   return (
     <div className="cart-modal">
@@ -43,18 +60,52 @@ const OrderModal = ({ order, isForAdmin }) => {
         <h1 className="header-title">{`Order ID: ${order.orderId}`}</h1>
         <h1 className="header-title">{`Status: ${order.status}`}</h1>
       </div>
-      {isForAdmin && <div className='user-info-header'>
-        <h3>{`Customer: ${order.user.firstname} ${order.user.lastname}`}</h3>
-        <h3>{`Email: ${order.user.email}`}</h3>
-        <h3>{`Contact No.: ${order.user.contactNo}`}</h3>
-        <h3>{`Address: ${order.user.address}`}</h3>
-      </div>}
+      {isForAdmin && (
+        <div className="order-account-summary">
+          <div>
+            <h3>{`Customer: ${order.user.firstname} ${order.user.lastname}`}</h3>
+            <h3>{`Email: ${order.user.email}`}</h3>
+            <h3>{`Contact No.: ${order.user.contactNo}`}</h3>
+            <h3>{`Address: ${order.user.address}`}</h3>
+          </div>
+          <div>
+            <RadioGroup
+              row
+              name="order-status"
+              value={order.status}
+              onChange={statusHandler}
+            >
+              <FormControlLabel
+                value="Preparing"
+                control={<Radio />}
+                label="Preparing"
+              />
+              <FormControlLabel
+                value="Packing"
+                control={<Radio />}
+                label="Packing"
+              />
+              <FormControlLabel
+                value="Shipped"
+                control={<Radio />}
+                label="Shipped"
+              />
+              <FormControlLabel
+                value="Completed"
+                control={<Radio />}
+                label="Completed"
+              />
+              <FormControlLabel
+                value="Canceled"
+                control={<Radio />}
+                label="Canceled"
+              />
+            </RadioGroup>
+          </div>
+        </div>
+      )}
       <div className="modal-content">
-        <Grid
-          container
-          spacing={2}
-          sx={{ height: "100%" }}
-        >
+        <Grid container spacing={2} sx={{ height: "100%" }}>
           <Grid item xs={12} md={8} className={classes.subPanel}>
             <h2 style={{ margin: 0 }}>Order List</h2>
             <ul className={classes.modalListContainer}>

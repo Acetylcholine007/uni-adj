@@ -49,7 +49,7 @@ const AccountPage = () => {
         </thead>
         <tbody>
           {orders
-            .filter((order) => order.status !== "Complete")
+            .filter((order) => order.status !== "Completed" && order.status !== "Cancelled")
             .map((order) => (
               <OrderStub order={order} setShowModal={setShowModal} setTargetOrder={setTargetOrder}/>
             ))}
@@ -59,14 +59,14 @@ const AccountPage = () => {
       <table className="account-table">
         <tbody>
           {orders
-            .filter((order) => order.status === "Complete")
+            .filter((order) => order.status === "Completed" || order.status === "Cancelled")
             .map((order) => (
               <OrderStub order={order} setShowModal={setShowModal} setTargetModal={setTargetOrder}/>
             ))}
         </tbody>
       </table>
       {targetOrder && <AppModal showModal={showModal} setShowModal={setShowModal}>
-        <OrderModal order={targetOrder}/>
+        <OrderModal orderId={targetOrder}/>
       </AppModal>}
       <AppModal showModal={showEditAccount} setShowModal={setShowEditAccount}>
         <EditAccountModal showModal={showModal} setShowModal={setShowEditAccount}/>

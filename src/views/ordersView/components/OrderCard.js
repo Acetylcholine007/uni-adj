@@ -4,7 +4,7 @@ import "./OrderCard.css";
 const OrderCard = ({ order, setShowModal, setTargetOrder }) => {
   return (
     <div className="order-card" onClick={() => {
-      setTargetOrder(order);
+      setTargetOrder(order.orderId);
       setShowModal(true);
     }}>
       <div className="order-card-header">
