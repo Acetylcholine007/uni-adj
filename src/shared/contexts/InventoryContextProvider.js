@@ -14,7 +14,7 @@ const reducer = (state, action) => {
       //TODO: add remove product statement
       return newState;
     case "RATE":
-      let product = newState.roducts.find(
+      let product = newState.products.find(
         (item) => item.productId === action.payload.productId
       );
       product.ratings[action.payload.userId] = action.payload.rating;

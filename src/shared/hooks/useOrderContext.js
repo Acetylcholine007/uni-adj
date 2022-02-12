@@ -5,7 +5,7 @@ import { UserContext } from "../contexts/UserContextProvider";
 
 export const useOrderContext = (userId = null) => {
   const {
-    inventory: { products },
+    inventory: { products }, inventoryDispatch
   } = useContext(InventoryContext);
   const {
     users: { users },
@@ -34,5 +34,5 @@ export const useOrderContext = (userId = null) => {
     };
   });
 
-  return { orders: newOrders, orderDispatch };
+  return { orders: newOrders, orderDispatch, inventoryDispatch };
 };

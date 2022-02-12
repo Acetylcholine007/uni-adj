@@ -16,7 +16,6 @@ const AccountPage = () => {
   const { user } = useUserContext();
   const { orders } = useOrderContext(user.userId);
 
-  console.log(targetOrder);
   return (
     <div>
       <h1>Your Account</h1>
@@ -61,7 +60,7 @@ const AccountPage = () => {
           {orders
             .filter((order) => order.status === "Completed" || order.status === "Cancelled")
             .map((order) => (
-              <OrderStub order={order} setShowModal={setShowModal} setTargetModal={setTargetOrder}/>
+              <OrderStub order={order} setShowModal={setShowModal} setTargetOrder={setTargetOrder}/>
             ))}
         </tbody>
       </table>

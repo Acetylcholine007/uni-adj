@@ -99,11 +99,16 @@
 
 .order-item {
     display: flex;
+    flex-direction: column;
     box-shadow: 0 1px 5px 1px #c0c0c0;
     border-radius: 0.5rem;
     cursor: pointer;
-    align-items: center;
     padding: 1rem;
+}
+
+.order-item-content {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 

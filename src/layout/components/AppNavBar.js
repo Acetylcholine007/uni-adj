@@ -36,6 +36,7 @@ const AppNavBar = ({ setShowModal, setShowCart }) => {
           type="text"
           className="search-field"
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => {if(e.key === 'Enter') searchHandler()}}
         />
         <button className="search-button" onClick={searchHandler}>
           <Search />

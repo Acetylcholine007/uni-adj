@@ -5,6 +5,7 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
+  Rating,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React, { useContext, useEffect } from "react";
@@ -40,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
 const OrderModal = ({ orderId, isForAdmin }) => {
   const classes = useStyles();
-  const { orders, orderDispatch } = useOrderContext();
+  const { orders, orderDispatch, inventoryDispatch } = useOrderContext();
   const order = orders.find((item) => item.orderId === orderId);
 
   const statusHandler = (event) => {
@@ -111,14 +112,38 @@ const OrderModal = ({ orderId, isForAdmin }) => {
             <ul className={classes.modalListContainer}>
               {order.list.map((item) => (
                 <li className="order-item">
-                  <img
-                    src={item.uri}
-                    alt="item_picture"
-                    className="order-item-pic"
-                  />
-                  <h3>{item.name}</h3>
-                  <h3>{`x ${item.quantity}`}</h3>
-                  <h3>{`P ${item.price}`}</h3>
+                  <div className="order-item-content">
+                    <img
+                      src={item.uri}
+                      alt="item_picture"
+                      className="order-item-pic"
+                    />
+                    <h3>{item.name}</h3>
+                    <h3>{`x ${item.quantity}`}</h3>
+                    <h3>{`P ${item.price}`}</h3>
+                  </div>
+                  {order.status === "Completed" && !isForAdmin && (
+                    <div style={{ alignSelf: "flex-end" }}>
+                      <Rating
+                        name="simple-controlled"
+                        value={
+                          item.ratings[order.user.userId] === null
+                            ? 0
+                            : item.ratings[order.user.userId]
+                        }
+                        onChange={(event, newValue) => {
+                          inventoryDispatch({
+                            type: "RATE",
+                            payload: {
+                              productId: item.productId,
+                              userId: order.user.userId,
+                              rating: newValue,
+                            },
+                          });
+                        }}
+                      />
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>

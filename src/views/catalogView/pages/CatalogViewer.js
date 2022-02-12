@@ -49,37 +49,42 @@ const CatalogViewer = () => {
   const query = useParams().query ?? "";
   const category = getCategoryContent(catId);
   const history = useHistory();
+  const filterProducts = products
+    .filter((product) =>
+      catId === "all" ? true : product.tags.includes(catId)
+    )
+    .filter((item) => {
+      if (query === "") {
+        return true;
+      } else {
+        return item.name.toLowerCase().includes(query.toLowerCase());
+      }
+    });
 
   if (category)
     return (
       <div>
         <h1 className="category-header">{category.title}</h1>
         <Grid container spacing={4}>
-          {products
-            .filter((product) =>
-              catId === "all" ? true : product.tags.includes(catId)
-            )
-            .filter((item) => {
-              if (query === "") {
-                return true;
-              } else {
-                return item.name.toLowerCase().includes(query.toLowerCase());
+          {filterProducts.length === 0 && <h1>No Products</h1>}
+          {filterProducts.length !== 0 && filterProducts.map((item) => (
+            <Grid
+              item
+              xs={6}
+              md={4}
+              lg={3}
+              key={item.productId}
+              onClick={() =>
+                history.push(
+                  `/catalogs/${catId}/${query === "" ? "null" : query}/${
+                    item.productId
+                  }`
+                )
               }
-            })
-            .map((item) => (
-              <Grid
-                item
-                xs={6}
-                md={4}
-                lg={3}
-                key={item.productId}
-                onClick={() =>
-                  history.push(`/catalogs/${catId}/${query === "" ? "null" : query}/${item.productId}`)
-                }
-              >
-                <ItemCard item={item} />
-              </Grid>
-            ))}
+            >
+              <ItemCard item={item} />
+            </Grid>
+          ))}
         </Grid>
       </div>
     );
