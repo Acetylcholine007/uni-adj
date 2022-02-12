@@ -1,3 +1,4 @@
+import { makeStyles } from "@mui/styles";
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Routes from "../../routes/Routes";
@@ -13,9 +14,27 @@ import CartModal from "../components/CartModal";
 
 import "./Layout.css";
 
+const useStyles = makeStyles((theme) => ({
+  contentLimitContracted: {
+    height: "100vh",
+    width: "calc(100% - 5rem)",
+    marginLeft: "5rem",
+    position: "absolute",
+    top: 0,
+  },
+  contentLimitExpanded: {
+    height: "100vh",
+    width: "calc(100% - 15rem)",
+    marginLeft: "15rem",
+    position: "absolute",
+    top: 0,
+  },
+}));
+
 const Layout = () => {
   const [showModal, setShowModal] = useState(false);
   const [showCart, setShowCart] = useState(false);
+  const [expandDrawer, setExpandDrawer] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userInfo, setUserInfo] = useState({
@@ -42,6 +61,7 @@ const Layout = () => {
     userDispatch,
   } = useContext(UserContext);
   const history = useHistory();
+  const classes = useStyles();
 
   const loginHandler = (userId) => {
     authDispatch({
@@ -119,21 +139,22 @@ const Layout = () => {
 
   return (
     <div className="main-container">
-      <AppDrawer />
-      <div className="content-container">
-        <AppNavBar setShowModal={setShowModal} setShowCart={setShowCart} />
-        <Routes />
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <AppFooter />
+      <AppDrawer
+        expandDrawer={expandDrawer}
+        setExpandDrawer={setExpandDrawer}
+      />
+      <div
+        className={
+          expandDrawer
+            ? classes.contentLimitExpanded
+            : classes.contentLimitContracted
+        }
+      >
+        <div className="content-container">
+          <AppNavBar setShowModal={setShowModal} setShowCart={setShowCart} />
+          <Routes />
+          <AppFooter />
+        </div>
       </div>
       <AppModal showModal={showModal} setShowModal={showModalHandler}>
         {authSelector(authSection)}

@@ -2,6 +2,7 @@
     height: 100vh;
     width: 100vw;
     background-color: #C0C0C0;
+    position: relative;
 }
 
 .links {
@@ -32,12 +33,19 @@
     font-style: italic;
 }
 
-.active {
+.active-link {
     background-color: red;
     color: white;
     font-style: italic;
 }
 
 .header {
-    height: 50px;
+    height: 4rem;
+    position: relative;
+}
+
+.drawer-toggler {
+    position: absolute !important;
+    top: 1.5rem;
+    left: 1.5rem;
 }
