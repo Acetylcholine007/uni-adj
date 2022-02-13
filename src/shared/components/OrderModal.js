@@ -72,8 +72,7 @@ const OrderModal = ({ orderId, isForAdmin }) => {
     <div className="cart-modal">
       <div className="modal-header">
         <div className="modal-brand">
-          <h2 className="modal-brand-name">UNI-ADJ</h2>
-          <h6 className="modal-brand-label">APPLIANCES TRADING</h6>
+          <img src="/uniadjlogo.png" className="cartlogo"/>
         </div>
         <h1 className="header-title">{`Order ID: ${order.orderId}`}</h1>
         <h1 className="header-title">{`Status: ${order.status}`}</h1>

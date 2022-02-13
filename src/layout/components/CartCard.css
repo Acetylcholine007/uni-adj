@@ -26,7 +26,7 @@
     justify-content: center;
     color: white;
     text-align: center;
-    background-color: red;
+    background-color: rgb(251,6,62);
 }
 
 .cart-item-badge-right {
@@ -41,7 +41,7 @@
     justify-content: center;
     color: white;
     text-align: center;
-    background-color: red;
+    background-color: rgb(251,6,62);
 }
 
 .cart-item-image {

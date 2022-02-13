@@ -1,10 +1,10 @@
 .category-header {
-    height: 10rem;
+    position: relative;
     width: 100%;
-    background-color: red;
-    font-size: 5rem;
+    background-color: rgb(251,6,62);
+    font-size: 8rem;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     color: white;
     margin: 0;
   }

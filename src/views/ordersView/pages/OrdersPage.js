@@ -14,7 +14,7 @@ const OrdersPage = () => {
   useEffect(() => {}, [orders]);
 
   return (
-    <div>
+    <div className="title-order">
       <h1>Orders:</h1>
       <Grid container spacing={3}>
         {orders.map((order) => (
