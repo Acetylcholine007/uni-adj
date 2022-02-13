@@ -5,8 +5,13 @@ import { Star, StarBorder } from "@mui/icons-material";
 import { InventoryContext } from "../../../shared/contexts/InventoryContextProvider";
 import { useUserContext } from "../../../shared/hooks/useUserContext";
 import "./ProductViewer.css";
+import { AuthContext } from "../../../shared/contexts/AuthContextProvider";
 
 const ProductViewer = () => {
+  const {
+    auth: { userId },
+    authDispatch,
+  } = useContext(AuthContext);
   const productId = useParams().productId;
   const {
     inventory: { products },
@@ -25,24 +30,32 @@ const ProductViewer = () => {
       : 0;
 
   const cartHandler = (pid) => {
-    userDispatch({
-      type: "ADD_CART",
-      payload: {
-        userId: user.userId,
-        item: { productId: pid, quantity: 1 },
-      },
-    });
+    if (userId !== null) {
+      userDispatch({
+        type: "ADD_CART",
+        payload: {
+          userId: user.userId,
+          item: { productId: pid, quantity: 1 },
+        },
+      });
+    } else {
+      authDispatch({ type: "TOGGLE_MODAL", payload: true });
+    }
   };
 
   const buyHandler = (product) => {
-    userDispatch({
-      type: "SET_SELECTED_ITEMS",
-      payload: {
-        userId: user.userId,
-        selectedItems: [{ ...product, quantity: 1 }],
-      },
-    });
-    history.push("/account/checkout");
+    if (userId !== null) {
+      userDispatch({
+        type: "SET_SELECTED_ITEMS",
+        payload: {
+          userId: user.userId,
+          selectedItems: [{ ...product, quantity: 1 }],
+        },
+      });
+      history.push("/account/checkout");
+    } else {
+      authDispatch({ type: "TOGGLE_MODAL", payload: true });
+    }
   };
 
   if (product !== undefined) {

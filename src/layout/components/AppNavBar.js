@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   search: {
-    height: "2.5rem",
+    height: "2rem",
     width: "40%",
     display: "flex",
     flexDirection: "row",
@@ -34,8 +34,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   buttons: {
-    display: 'flex',
-    justifyContent: 'center',
+    display: "flex",
+    justifyContent: "center",
     order: 3,
     flexBasis: "auto",
     [theme.breakpoints.down("md")]: {
@@ -57,9 +57,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AppNavBar = ({ setShowModal, setShowCart }) => {
+const AppNavBar = ({ setShowModal, setShowCart, setShowAuth }) => {
   const [query, setQuery] = useState("");
-  const { user, authDispatch } = useUserContext();
+  const { userId, user, authDispatch } = useUserContext();
   const history = useHistory();
   const location = useLocation();
   const classes = useStyles();
@@ -96,7 +96,10 @@ const AppNavBar = ({ setShowModal, setShowCart }) => {
         </button>
       </div>
       <span className={classes.buttons}>
-        <IconButton aria-label="cart" onClick={setShowCart}>
+        <IconButton
+          aria-label="cart"
+          onClick={() => (userId !== null ? setShowCart() : setShowAuth(true))}
+        >
           <ShoppingCart />
         </IconButton>
         <IconButton aria-label="notifications">
@@ -112,10 +115,13 @@ const AppNavBar = ({ setShowModal, setShowCart }) => {
             <img src={user.profileUri} alt="background" className="avatar" />
             <h4 className="profile-label">{user.username}</h4>
           </div>
-          <button className="authenticate-button" onClick={() => {
+          <button
+            className="authenticate-button"
+            onClick={() => {
               history.push("/");
               authDispatch({ type: "LOGOUT" });
-            }}>
+            }}
+          >
             SIGN OUT
           </button>
         </div>

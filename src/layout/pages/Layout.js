@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Layout = () => {
-  const [showModal, setShowModal] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const [expandDrawer, setExpandDrawer] = useState(true);
   const [email, setEmail] = useState("");
@@ -53,7 +52,7 @@ const Layout = () => {
   const [forgotPassword, setForgotPassword] = useState(false);
   const [userExist, setUserExist] = useState(false);
   const {
-    auth: { authSection, isLoggedIn },
+    auth: { authSection, isLoggedIn, showAuthModal },
     authDispatch,
   } = useContext(AuthContext);
   const {
@@ -62,6 +61,10 @@ const Layout = () => {
   } = useContext(UserContext);
   const history = useHistory();
   const classes = useStyles();
+
+  const setShowModal = (status) => {
+    authDispatch({type: "TOGGLE_MODAL", payload: status});
+  }
 
   const loginHandler = (userId) => {
     authDispatch({
@@ -151,12 +154,12 @@ const Layout = () => {
         }
       >
         <div className="content-container">
-          <AppNavBar setShowModal={setShowModal} setShowCart={setShowCart} />
+          <AppNavBar setShowModal={setShowModal} setShowCart={setShowCart} setShowAuth = {showModalHandler} />
           <Routes />
           <AppFooter />
         </div>
       </div>
-      <AppModal showModal={showModal} setShowModal={showModalHandler}>
+      <AppModal showModal={showAuthModal} setShowModal={showModalHandler}>
         {authSelector(authSection)}
       </AppModal>
       {isLoggedIn && (

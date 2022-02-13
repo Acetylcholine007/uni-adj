@@ -12,5 +12,5 @@ export const useUserContext = () => {
 
   const user = userId != null ? users.find((user) => user.userId === userId) : null;
   const accountType = user != null ? user.accountType : 1;
-  return {user, accountType, authDispatch, userDispatch};
+  return {userId, user, accountType, authDispatch, userDispatch};
 }

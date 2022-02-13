@@ -3,7 +3,7 @@ import React, { createContext, useReducer } from "react";
 export const AuthContext = createContext();
 
 const reducer = (state, action) => {
-  console.log('reached')
+  console.log("reached");
   switch (action.type) {
     case "SIGNUP":
       return { ...state, isLoggedIn: true, userId: action.payload };
@@ -13,17 +13,19 @@ const reducer = (state, action) => {
       return { ...state, isLoggedIn: false, userId: null };
     case "CHANGE_AUTH_SECTION":
       return { ...state, authSection: action.payload };
+    case "TOGGLE_MODAL":
+      return { ...state, showAuthModal: action.payload };
     default:
       return state;
   }
 };
 
 const AuthContextProvider = ({ children }) => {
-
   const [auth, authDispatch] = useReducer(reducer, {
     isLoggedIn: true,
     authSection: "LOGIN",
     userId: "1",
+    showAuthModal: false,
   });
 
   return (
