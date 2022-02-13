@@ -1,11 +1,14 @@
 .account-table {
-  width: 100%;
+  position: relative;
+  left: 20px;
+  width: 98%;
   border-spacing: 0 1rem;
   text-align: center;
 }
 
 .account-table-header td {
-  background-color: red;
+  position: relative;
+  background-color: rgb(251,6,62);
   color: white;
   padding: 0.5rem !important;
   font-weight: bold;
@@ -20,10 +23,12 @@
 }
 
 .account-info {
+  position: relative;
+  left: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%;
+  width: 98%;
   margin-bottom: 1rem;
   box-sizing: border-box;
 }
@@ -43,6 +48,7 @@
   width: 12%;
   padding-bottom: 12%;
   position: relative;
+  left: 10px;
 }
 
 .account-stub {

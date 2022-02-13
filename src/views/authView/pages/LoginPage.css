@@ -4,6 +4,9 @@
     justify-content: center;
     padding: 1rem;
 }
+.secondlogo{
+    height: 70px;
+}
 
 .brand-container {
     display: flex;

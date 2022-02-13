@@ -35,9 +35,8 @@ const LoginPage = ({
   }
   return (
     <div className="login">
-      <div className="brand-contaner">
-        <h4 className="brand-name">UNI-ADJ</h4>
-        <h6 className="brand-label">APPLIANCES TRADING</h6>
+      <div className="brand-contaner">  
+          <img src= '/uniadjlogo.png' className="secondlogo"></img>
         <h4 className="brand-caption">
           Your next <span className="caption-highlight">home upgrade</span>{" "}
           awaits!

@@ -28,13 +28,13 @@
 }
 
 .linkItem:hover {
-    background-color: red;
+    background-color: rgb(216,6,54);
     color: white;
     font-style: italic;
 }
 
 .active-link {
-    background-color: red;
+    background-color: rgb(216,6,54);
     color: white;
     font-style: italic;
 }

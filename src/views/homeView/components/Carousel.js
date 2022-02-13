@@ -60,7 +60,7 @@ const Carousel = ({ products }) => {
         <IconButton
           className="carousel-back"
           onClick={() => switchHandler(false)}
-          sx={{ position: "absolute", top: "7rem", left: "1rem" }}
+          sx={{ position: "absolute", top: "7rem", left: "-1.5rem" }}
         >
           <ChevronLeft />
         </IconButton>
