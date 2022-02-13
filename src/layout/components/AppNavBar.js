@@ -98,7 +98,7 @@ const AppNavBar = ({ setShowModal, setShowCart, setShowAuth }) => {
       <span className={classes.buttons}>
         <IconButton
           aria-label="cart"
-          onClick={() => (userId !== null ? setShowCart() : setShowAuth(true))}
+          onClick={() => (userId !== null ? setShowCart(true) : setShowAuth(true))}
         >
           <ShoppingCart />
         </IconButton>

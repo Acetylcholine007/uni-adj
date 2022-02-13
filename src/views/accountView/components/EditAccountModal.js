@@ -6,10 +6,10 @@ import "./EditAccountModal.css";
 
 const useStyles = makeStyles((theme) => ({
   subPanel: {
+    flexDirection: "column !important",
     [theme.breakpoints.up("md")]: {
       height: "100%",
       display: "flex",
-      flexDirection: "column",
     },
     height: "initial",
     display: "block",

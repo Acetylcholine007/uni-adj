@@ -95,12 +95,7 @@ const ProductViewer = () => {
             </div>
             <Divider />
             <h2>Description:</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-              officiis doloremque enim magni necessitatibus suscipit alias atque
-              voluptate illo quas hic eius adipisci nemo iste, perferendis
-              dolore ullam veniam voluptas.
-            </p>
+            <p>{product.description}</p>
           </Grid>
         </Grid>
       </div>

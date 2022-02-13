@@ -45,6 +45,10 @@
   cursor: pointer;
 }
 
+.app-button:hover {
+  transform: scale(102%);
+}
+
 .p-color {
   background-color: red;
   color: white;
