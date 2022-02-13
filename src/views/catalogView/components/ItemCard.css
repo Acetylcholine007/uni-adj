@@ -1,6 +1,12 @@
 .item-container {
     position: relative;
     height: 100%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.item-container:hover {
+    transform: scale(105%);
 }
 
 .item-card {

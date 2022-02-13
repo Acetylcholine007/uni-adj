@@ -2,4 +2,9 @@
     width: 100%;
     object-fit: contain;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.brand-banner:hover {
+    transform: scale(105%);
 }

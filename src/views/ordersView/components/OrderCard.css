@@ -7,6 +7,11 @@
     box-sizing: border-box;
     cursor: pointer;
     width: 100%;
+    transition: transform 0.2s;
+}
+
+.order-card:hover {
+    transform: scale(105%);
 }
 
 .order-card-header {

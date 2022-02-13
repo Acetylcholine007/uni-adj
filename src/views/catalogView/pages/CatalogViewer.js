@@ -52,7 +52,7 @@ const CatalogViewer = () => {
 
   const parsedQuery = query.split("-");
 
-  console.log(parsedQuery)
+  console.log(parsedQuery);
   const filterProducts = products
     .filter((product) =>
       catId === "all" ? true : product.tags.includes(catId)
@@ -78,7 +78,7 @@ const CatalogViewer = () => {
         return i.promo === parsedQuery[2];
       }
     });
-    filterProducts.forEach(i => console.log(i.promo))
+  filterProducts.forEach((i) => console.log(i.promo));
 
   if (category)
     return (
@@ -110,7 +110,9 @@ const CatalogViewer = () => {
             ))}
           </Grid>
         )}
-        {filterProducts.length === 0 && <h1>No Products</h1>}
+        {filterProducts.length === 0 && (
+          <h1 style={{ textAlign: "center", fontSize: '3rem' }}>No Products 📦</h1>
+        )}
       </div>
     );
   return <div>Invalid category</div>;

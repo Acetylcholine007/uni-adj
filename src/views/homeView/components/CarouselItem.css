@@ -8,12 +8,12 @@
   height: 100%;
   width: 50%;
   border-radius: 4rem;
-  box-shadow: 0 0 10px 1px #C0C0C0;
+  box-shadow: 0 0 10px 1px #c0c0c0;
   object-fit: contain;
 }
 
 .carousel-item-info {
-    margin-left: 1rem;
+  margin-left: 1rem;
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -28,11 +28,11 @@
 }
 
 .carousel-item-info h2 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    height: 4rem;
-    width: 100%;
-  }
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 4rem;
+  width: 100%;
+}
 
 .carousel-item-info button {
   border: 0;
@@ -40,7 +40,7 @@
   height: 2rem;
   font-size: 1rem;
   cursor: pointer;
-  background-color: rgb(251,6,62);
+  background-color: rgb(251, 6, 62);
   color: white;
   border-radius: 1rem;
   font-style: italic;
@@ -48,5 +48,5 @@
 }
 
 .carousel-item-info button:hover {
-    background-color: rgb(177, 19, 19);
-} 
+  background-color: rgb(177, 19, 19);
+}

@@ -31,12 +31,12 @@ const LoginPage = ({
   };
 
   if (forgotPassword) {
-    return <h1>Too Bad :-(</h1>;
+    return <h1>No Reset, Too bad. ⛔🚧⛔</h1>;
   }
   return (
     <div className="login">
       <div className="brand-contaner">  
-          <img src= '/uniadjlogo.png' className="secondlogo"></img>
+          <img src= '/uniadjlogo.png' className="secondlogo" alt='uni-adj logo'></img>
         <h4 className="brand-caption">
           Your next <span className="caption-highlight">home upgrade</span>{" "}
           awaits!

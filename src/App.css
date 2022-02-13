@@ -43,6 +43,7 @@
   height: 3rem;
   font-size: 1.5rem;
   cursor: pointer;
+  transition: transform 0.1s;
 }
 
 .app-button:hover {

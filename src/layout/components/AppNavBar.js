@@ -9,6 +9,20 @@ import { useUserContext } from "../../shared/hooks/useUserContext";
 import "./AppNavBar.css";
 
 const useStyles = makeStyles((theme) => ({
+  navbar: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-end",
+    justifyContent: "space-between",
+    paddingLeft: "1rem",
+    boxSizing: "border-box",
+    flexWrap: "nowrap",
+    marginBottom: "1rem",
+    [theme.breakpoints.down("md")]: {
+      flexWrap: "wrap",
+    },
+  },
   brand: {
     display: "flex",
     flexDirection: "column",
@@ -23,6 +37,17 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     height: "2rem",
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    paddingLeft: 0,
+    [theme.breakpoints.down("md")]: {
+      width: "25.75rem",
+      paddingLeft: "1.5rem",
+    },
+  },
+  searchSection: {
+    height: "2rem",
     width: "40%",
     display: "flex",
     flexDirection: "row",
@@ -31,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       order: 3,
       flexBasis: "80%",
+      width: "100%",
     },
   },
   buttons: {
@@ -57,7 +83,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AppNavBar = ({ setShowModal, setShowCart, setShowAuth }) => {
+const AppNavBar = ({
+  setShowModal,
+  setShowCart,
+  setShowAuth,
+  setShowNotif,
+}) => {
   const [query, setQuery] = useState("");
   const { userId, user, authDispatch } = useUserContext();
   const history = useHistory();
@@ -77,32 +108,41 @@ const AppNavBar = ({ setShowModal, setShowCart, setShowAuth }) => {
   };
 
   return (
-    <div className="navbar">
+    <div className={classes.navbar}>
       <div className="brand" onClick={() => history.push("/")}>
         <img src="/uniadjlogo.png" className="logo" alt="uni-adj logo" />
       </div>
-      <div className={classes.search}>
-        <input
-          value={query}
-          type="text"
-          className="search-field"
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") searchHandler();
-          }}
-        />
-        <button className="search-button" onClick={searchHandler}>
-          <Search />
-        </button>
+      <div className={classes.searchSection}>
+        <div className={classes.search}>
+          <input
+            value={query}
+            type="text"
+            className="search-field"
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") searchHandler();
+            }}
+          />
+          <button className="search-button" onClick={searchHandler}>
+            <Search />
+          </button>
+        </div>
       </div>
       <span className={classes.buttons}>
         <IconButton
           aria-label="cart"
-          onClick={() => (userId !== null ? setShowCart(true) : setShowAuth(true))}
+          onClick={() =>
+            userId !== null ? setShowCart(true) : setShowAuth(true)
+          }
         >
           <ShoppingCart />
         </IconButton>
-        <IconButton aria-label="notifications">
+        <IconButton
+          aria-label="notifications"
+          onClick={() =>
+            userId !== null ? setShowNotif(true) : setShowAuth(true)
+          }
+        >
           <NotificationsActive />
         </IconButton>
       </span>

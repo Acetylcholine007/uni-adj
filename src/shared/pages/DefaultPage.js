@@ -2,9 +2,9 @@ import React from 'react'
 
 const DefaultPage = () => {
     return (
-        <div>
-            You are not allowed
-        </div>
+        <h1>
+            <h1 style={{textAlign: 'center'}}>Route not available ⛔</h1>
+        </h1>
     )
 }
 

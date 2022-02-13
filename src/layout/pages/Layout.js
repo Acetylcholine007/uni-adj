@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Layout = () => {
   const [showCart, setShowCart] = useState(false);
+  const [showNotif, setShowNotif] = useState(false);
   const [expandDrawer, setExpandDrawer] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -157,6 +158,7 @@ const Layout = () => {
           <AppNavBar
             setShowModal={setShowModal}
             setShowCart={setShowCart}
+            setShowNotif={setShowNotif}
             setShowAuth={showModalHandler}
           />
           <div className="page-margin">
@@ -173,6 +175,11 @@ const Layout = () => {
       {isLoggedIn && (
         <AppModal showModal={showCart} setShowModal={setShowCart}>
           <CartModal setShowCart={setShowCart} showCart={showCart} />
+        </AppModal>
+      )}
+      {isLoggedIn && (
+        <AppModal showModal={showNotif} setShowModal={setShowNotif}>
+          <h1>No Notifications ⛔🚧⛔</h1>
         </AppModal>
       )}
     </div>
