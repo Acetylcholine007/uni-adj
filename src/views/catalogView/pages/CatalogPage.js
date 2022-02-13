@@ -13,7 +13,7 @@ const CatalogPage = () => {
 
   return (
     <div>
-      <h1>Categories:</h1>
+      <h1>Product Categories</h1>
       <Grid container spacing={3}>
         <Grid item xs={6} md={4}>
           <button
@@ -64,13 +64,14 @@ const CatalogPage = () => {
           </button>
         </Grid>
       </Grid>
-      <h2>Featured Brands</h2>
+      <h1>Featured Brands</h1>
       <h3
         align="center"
         style={{
           fontStyle: "italic",
           width: "100%",
           backgroundColor: "#F3F2F2",
+          margin: '1rem 0'
         }}
       >
         Fill your home with these brands

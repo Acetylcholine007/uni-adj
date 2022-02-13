@@ -113,7 +113,7 @@ const SignupPage = ({
             />
           </label>
           <label>
-            Profile URI 
+            Profile URL 
             <input
               type="text"
               className="form-field"

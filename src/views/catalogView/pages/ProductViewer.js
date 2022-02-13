@@ -73,14 +73,23 @@ const ProductViewer = () => {
           </Grid>
           <Grid item xs={12} md={7}>
             <h1 className="product-name">{product.name}</h1>
-            <h3 style={{ verticalAlign: "center" }}>
+            <div className="rating-bar">
               <span>
                 {[1, 2, 3, 4, 5].map((count) => {
                   if (count > ratings) return <StarBorder key={count} />;
                   else return <Star key={count} />;
                 })}
               </span>
-            </h3>
+              {product.badge.label === "HOT!" && (
+                <h3 style={{ backgroundColor: "rgb(251,6,62)" }}>HOT!</h3>
+              )}
+              {product.badge.label === "NEW!" && (
+                <h3 style={{ backgroundColor: "orange" }}>NEW!</h3>
+              )}
+              {product.badge.label === "SURPLUS" && (
+                <h3 style={{ backgroundColor: "burlywood" }}>SURPLUS</h3>
+              )}
+            </div>
             <div className="price-bar">
               <h1 className="currency">&#8369;</h1>
               <h1>

@@ -1,13 +1,12 @@
 .order-card {
     display: flex;
-    position: relative;
     flex-direction: column;
-    left: 50px;
     border-radius: 2rem;
     box-shadow: 0 0 10px 1px #696969;
     overflow: hidden;
     box-sizing: border-box;
     cursor: pointer;
+    width: 100%;
 }
 
 .order-card-header {

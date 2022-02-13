@@ -6,7 +6,6 @@ import "./CheckoutPage.css";
 import AppModal from "../../../shared/components/AppModal";
 import EditAccountModal from "../components/EditAccountModal";
 import { useUserContext } from "../../../shared/hooks/useUserContext";
-import { useOrderContext } from "../../../shared/hooks/useOrderContext";
 import { useContext } from "react";
 import { OrderContext } from "../../../shared/contexts/OrderContextProvider";
 import { useHistory } from "react-router-dom";
@@ -39,19 +38,19 @@ const useStyles = makeStyles((theme) => ({
 
 const CheckoutPage = () => {
   const [showEditAccount, setShowEditAccount] = useState(false);
-  const classes = useStyles();
   const history = useHistory();
-  const { user } = useUserContext();
+  const { user, userDispatch } = useUserContext();
   const { orderDispatch } = useContext(OrderContext);
 
   const orderHandler = () => {
     let dateNow = new Date();
+    let currentSelectedItems = user.selectedItems;
     orderDispatch({
       type: "ADD_ORDER",
       payload: {
         userId: user.userId,
         date: dateNow.toLocaleDateString(),
-        list: user.selectedItems.map((item) => ({
+        list: currentSelectedItems.map((item) => ({
           productId: item.productId,
           quantity: item.quantity,
         })),
@@ -59,7 +58,11 @@ const CheckoutPage = () => {
         convo: [],
       },
     });
-    history.push("/orders");
+    userDispatch({
+      type: "REMOVE_CART_MANY",
+      payload: { userId: user.userId, currentSelectedItems },
+    });
+    history.push("/account");
   };
 
   if (user.selectedItems.length === 0) {
@@ -111,29 +114,15 @@ const CheckoutPage = () => {
                   <h3>{`x ${item.quantity}`}</h3>
                 </td>
                 <td>
-                  <h3>{`P ${item.price}`}</h3>
+                  <h3>&#8369;{` ${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</h3>
                 </td>
                 <td>
-                  <h3>{`P ${item.price * item.quantity}`}</h3>
+                  <h3>&#8369;{` ${(item.price * item.quantity).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</h3>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        {/* <ul className={classes.modalListContainer}>
-          {user.selectedItems.map((item) => (
-            <li className="order-item">
-              <img
-                src={item.uri}
-                alt="item_picture"
-                className="order-item-pic"
-              />
-              <h3>{item.name}</h3>
-              <h3>{`x ${item.quantity}`}</h3>
-              <h3>{`P ${item.price}`}</h3>
-            </li>
-          ))}
-        </ul> */}
         <Divider />
         <Grid container>
           <Grid item xs={12} md={6}>
@@ -151,9 +140,9 @@ const CheckoutPage = () => {
             }}
           >
             <h3 style={{ margin: 0 }}>TOTAL:</h3>
-            <h1 style={{ margin: 0 }}>{`P ${user.selectedItems
+            <h1 style={{ margin: 0 }}>&#8369;{` ${user.selectedItems
               .map((item) => item.quantity * item.price)
-              .reduce((a, b) => a + b)}`}</h1>
+              .reduce((a, b) => a + b).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</h1>
           </Grid>
         </Grid>
         <button className="modal-button checkout-button" onClick={orderHandler}>

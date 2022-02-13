@@ -15,36 +15,43 @@ const HomePage = () => {
 
   return (
     <div>
-      <div>
-        <FeatureCard slides={SliderData} />
-      </div>
+      <FeatureCard slides={SliderData} />
       <div className="home-header">
         <h1 className="header-text">
           What's <span style={{ color: "rgb(216,6,54)" }}>NEW?</span>
         </h1>
-        <p className="home-link" onClick={() => history.push("./catalogs/all")}>
+        <p
+          className="home-link"
+          onClick={() => history.push("./catalogs/all/--NEW")}
+        >
           View More
         </p>
       </div>
-      <Carousel products={products.filter((item) => item.promo === 'NEW')} />
+      <Carousel products={products.filter((item) => item.promo === "NEW")} />
       <div className="home-header">
         <h1 className="header-text">
           What's <span style={{ color: "rgb(216,6,54)" }}>HOT?</span>
         </h1>
-        <p className="home-link" onClick={() => history.push("./catalogs/all")}>
+        <p
+          className="home-link"
+          onClick={() => history.push("./catalogs/all/--HOT")}
+        >
           View More
         </p>
       </div>
-      <Carousel products={products.filter((item) => item.promo === 'HOT')} />
+      <Carousel products={products.filter((item) => item.promo === "HOT")} />
       <div className="home-header">
         <h1 className="header-text">
           What's <span style={{ color: "rgb(216,6,54)" }}>SALE?</span>
         </h1>
-        <p className="home-link" onClick={() => history.push("./catalogs/all")}>
+        <p
+          className="home-link"
+          onClick={() => history.push("./catalogs/all/--SALE")}
+        >
           View More
         </p>
       </div>
-      <Carousel products={products.filter((item) => item.promo === 'SALE')} />
+      <Carousel products={products.filter((item) => item.promo === "SALE")} />
     </div>
   );
 };

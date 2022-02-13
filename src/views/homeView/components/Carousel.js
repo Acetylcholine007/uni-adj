@@ -1,18 +1,12 @@
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import { Grid, IconButton } from "@mui/material";
-import { makeStyles } from "@mui/styles";
 import React from "react";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
 import "./Carousel.css";
 import CarouselItem from "./CarouselItem";
 
-const useStyles = makeStyles((theme) => ({}));
-
 const Carousel = ({ products }) => {
   const [itemIndex, setItemIndex] = useState(0);
-  const history = useHistory();
-  const classes = useStyles();
 
   const switchHandler = (forward) => {
     if (forward) {
@@ -48,12 +42,22 @@ const Carousel = ({ products }) => {
           </Grid>
         )}
         {slicedProducts[1] && (
-          <Grid item xs={12} md={4} sx={{ display: { sm: 'none', md: 'block' } }}>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{ display: { sm: "none", md: "block" } }}
+          >
             <CarouselItem product={slicedProducts[1]} />
           </Grid>
         )}
         {slicedProducts[2] && (
-          <Grid item xs={12} md={4} sx={{ display: { sm: 'none', md: 'block' } }}>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            sx={{ display: { sm: "none", md: "block" } }}
+          >
             <CarouselItem product={slicedProducts[2]} />
           </Grid>
         )}

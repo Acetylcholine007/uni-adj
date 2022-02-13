@@ -1,12 +1,12 @@
 import { Grid } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useCart } from "../../shared/hooks/useCart";
 import { useUserContext } from "../../shared/hooks/useUserContext";
 import CartCard from "./CartCard";
 import "./CartModal.css";
 
-const CartModal = ({ setShowCart }) => {
+const CartModal = ({ setShowCart, showCart }) => {
   const cartItems = useCart();
   const [selectedItems, setSelectedItems] = useState([]);
   const { user, userDispatch } = useUserContext();
@@ -21,11 +21,15 @@ const CartModal = ({ setShowCart }) => {
     history.push("/account/checkout");
   };
 
+  useEffect(() => {
+    setSelectedItems([]);
+  }, [user, showCart]);
+
   return (
     <div className="cart-modal">
       <div className="modal-header">
         <div className="modal-brand">
-          <img src="/uniadjlogo.png" className="cartlogo"/>
+          <img src="/uniadjlogo.png" className="cartlogo" alt="UNI-ADJ logo" />
         </div>
         <h1 className="header-title">Your Cart</h1>
       </div>

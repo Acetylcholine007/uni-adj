@@ -7,7 +7,7 @@ const OrderStub = ({ order, setShowModal, setTargetOrder }) => {
       setTargetOrder(order.orderId);
       setShowModal(true);
     }}>
-      <td colSpan={2}>
+      <td colSpan={2} style={{width: '60%'}}>
         <ul className="stub-list">
           {order.list.map((item) => (
             <li>
@@ -22,11 +22,11 @@ const OrderStub = ({ order, setShowModal, setTargetOrder }) => {
           ))}
         </ul>
       </td>
-      <td>{order.status}</td>
-      <td>
-        <h3>{`P ${order.list
+      <td style={{width: '20%'}}>{order.status}</td>
+      <td style={{width: '20%'}}>
+        <h3>&#8369;{` ${order.list
           .map((item) => item.quantity * item.price)
-          .reduce((a, b) => a + b)}`}</h3>
+          .reduce((a, b) => a + b).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</h3>
       </td>
     </tr>
   );

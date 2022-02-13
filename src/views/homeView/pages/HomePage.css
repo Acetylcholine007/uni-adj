@@ -87,12 +87,6 @@
     background-color: white;
 }
 
-.carousel{
-    display: flex;
-    position: relative;
-    left: 40px;
-}
-
 .header-text{
     padding-left: 20px;
 }

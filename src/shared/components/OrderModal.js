@@ -136,7 +136,7 @@ const OrderModal = ({ orderId, isForAdmin }) => {
                     />
                     <h3>{item.name}</h3>
                     <h3>{`x ${item.quantity}`}</h3>
-                    <h3>{`P ${item.price}`}</h3>
+                    <h3>&#8369;{` ${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</h3>
                   </div>
                   {order.status === "Completed" && !isForAdmin && (
                     <div style={{ alignSelf: "flex-end" }}>
@@ -165,9 +165,9 @@ const OrderModal = ({ orderId, isForAdmin }) => {
             </ul>
             <div className="tally-area">
               <h1>TOTAL:</h1>
-              <h1>{`P ${order.list
+              <h1>&#8369;{` ${order.list
                 .map((item) => item.quantity * item.price)
-                .reduce((a, b) => a + b)}`}</h1>
+                .reduce((a, b) => a + b).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</h1>
             </div>
           </Grid>
           <Grid item xs={12} md={4} className={classes.subPanel}>

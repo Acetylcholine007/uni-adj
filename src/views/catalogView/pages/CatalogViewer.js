@@ -70,7 +70,15 @@ const CatalogViewer = () => {
       } else {
         return i.brand === parsedQuery[1];
       }
+    })
+    .filter((i) => {
+      if (parsedQuery[2] === undefined || parsedQuery[2] === "") {
+        return true;
+      } else {
+        return i.promo === parsedQuery[2];
+      }
     });
+    filterProducts.forEach(i => console.log(i.promo))
 
   if (category)
     return (

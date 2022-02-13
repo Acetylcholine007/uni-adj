@@ -27,7 +27,7 @@ const InventoryPage = () => {
               <td>{item.name}</td>
               <td>{item.stocks > 0 ? 'Available' : 'Depleted'}</td>
               <td>{item.stocks}</td>
-              <td>{item.price}</td>
+              <td>&#8369; {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</td>
             </tr>
           ))}
         </tbody>

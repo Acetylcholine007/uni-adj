@@ -1,3 +1,16 @@
-.title-order{
-    padding-left: 25px;
-}
+.orders-header {
+    height: 10rem;
+    width: 100%;
+    background-color: #696969;
+    font-size: 6rem;
+    display: flex;
+    align-items: flex-end;
+    color: white;
+    margin: 0;
+    padding-left: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .order-grid {
+      margin: 1rem 2rem;
+  }

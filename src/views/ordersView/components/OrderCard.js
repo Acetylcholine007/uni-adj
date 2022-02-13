@@ -26,9 +26,9 @@ const OrderCard = ({ order, setShowModal, setTargetOrder }) => {
         <h5 style={{ fontWeight: "light", fontStyle: "italic" }}>
           {order.status}
         </h5>
-        <h2>{`P ${order.list
+        <h2>&#8369;{` ${order.list
           .map((item) => item.quantity * item.price)
-          .reduce((a, b) => a + b)}`}</h2>
+          .reduce((a, b) => a + b).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}</h2>
       </div>
     </div>
   );
