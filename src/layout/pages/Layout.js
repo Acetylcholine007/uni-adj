@@ -63,8 +63,8 @@ const Layout = () => {
   const classes = useStyles();
 
   const setShowModal = (status) => {
-    authDispatch({type: "TOGGLE_MODAL", payload: status});
-  }
+    authDispatch({ type: "TOGGLE_MODAL", payload: status });
+  };
 
   const loginHandler = (userId) => {
     authDispatch({
@@ -154,8 +154,14 @@ const Layout = () => {
         }
       >
         <div className="content-container">
-          <AppNavBar setShowModal={setShowModal} setShowCart={setShowCart} setShowAuth = {showModalHandler} />
-          <Routes />
+          <AppNavBar
+            setShowModal={setShowModal}
+            setShowCart={setShowCart}
+            setShowAuth={showModalHandler}
+          />
+          <div className="page-margin">
+            <Routes />
+          </div>
           <AppFooter />
         </div>
       </div>

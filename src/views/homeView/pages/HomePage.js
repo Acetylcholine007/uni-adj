@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { InventoryContext } from "../../../shared/contexts/InventoryContextProvider";
+import Carousel from "../components/Carousel";
 import FeatureCard from "../components/FeatureCard";
 import { SliderData } from "../components/SliderData";
 
-
 import "./HomePage.css";
-
 
 const HomePage = () => {
   const {
@@ -16,17 +15,27 @@ const HomePage = () => {
 
   return (
     <div>
-      <div><FeatureCard slides={SliderData}/></div>
-      <div className="home-header"> 
-        <h1 className="header-text">What's New?</h1>
-        <p className="home-link" onClick={() => history.push('./catalogs/all')}>View More</p>
+      <div>
+        <FeatureCard slides={SliderData} />
       </div>
+      <div className="home-header">
+        <h1 className="header-text">
+          What's <span style={{ color: "red" }}>NEW?</span>
+        </h1>
+        <p className="home-link" onClick={() => history.push("./catalogs/all")}>
+          View More
+        </p>
+      </div>
+      <Carousel products={products} />
       <div className="home-header">
         <h1 className="header-text">
           What's <span style={{ color: "red" }}>HOT?</span>
         </h1>
-        <p className="home-link" onClick={() => history.push('./catalogs/all')}>View More</p>
+        <p className="home-link" onClick={() => history.push("./catalogs/all")}>
+          View More
+        </p>
       </div>
+      <Carousel products={products} />
     </div>
   );
 };
