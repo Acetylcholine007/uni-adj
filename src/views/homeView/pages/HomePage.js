@@ -26,7 +26,7 @@ const HomePage = () => {
           View More
         </p>
       </div>
-      <Carousel products={products} />
+      <Carousel products={products.filter((item) => item.promo === 'NEW')} />
       <div className="home-header">
         <h1 className="header-text">
           What's <span style={{ color: "red" }}>HOT?</span>
@@ -35,7 +35,16 @@ const HomePage = () => {
           View More
         </p>
       </div>
-      <Carousel products={products} />
+      <Carousel products={products.filter((item) => item.promo === 'HOT')} />
+      <div className="home-header">
+        <h1 className="header-text">
+          What's <span style={{ color: "red" }}>SALE?</span>
+        </h1>
+        <p className="home-link" onClick={() => history.push("./catalogs/all")}>
+          View More
+        </p>
+      </div>
+      <Carousel products={products.filter((item) => item.promo === 'SALE')} />
     </div>
   );
 };

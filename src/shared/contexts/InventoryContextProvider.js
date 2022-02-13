@@ -475,7 +475,7 @@ const InventoryContextProvider = ({ children }) => {
         badge: {label: "NEW!", color: "orange" },
         uri: "https://ph-test-11.slatic.net/p/f0385957a8c99cd6b21b538f47a3b868.jpg",
         stocks: 5,
-        promo: "",
+        promo: "NEW",
         comment: [],
         brand: "8",
         tags: [
@@ -511,7 +511,7 @@ const InventoryContextProvider = ({ children }) => {
         badge: {label: "NEW!", color: "orange" },
         uri: "https://cf.shopee.ph/file/9784fbee1e716bdf61f9f68c37173702",
         stocks: 5,
-        promo: "",
+        promo: "NEW",
         comment: [],
         brand: "8",
         tags: [
@@ -548,7 +548,7 @@ const InventoryContextProvider = ({ children }) => {
         badge: {},
         uri: "https://d1rlzxa98cyc61.cloudfront.net/catalog/product/cache/1801c418208f9607a371e61f8d9184d9/1/4/142146_2020.jpg",
         stocks: 10,
-        promo: "",
+        promo: "NEW",
         comment: [],
         brand: "10",
         tags: [
@@ -582,7 +582,7 @@ const InventoryContextProvider = ({ children }) => {
         badge: {label: "SURPLUS", color: "brown" },
         uri: "https://d1rlzxa98cyc61.cloudfront.net/catalog/product/cache/1801c418208f9607a371e61f8d9184d9/1/7/174363_2020.jpg",
         stocks: 3,
-        promo: "",
+        promo: "NEW",
         comment: [],
         brand: "10",
         tags: [
