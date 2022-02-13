@@ -12,6 +12,9 @@
     overflow: hidden;
     box-shadow: 0 0 10px 1px #696969;
     overflow-y: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .content-limit {
@@ -24,4 +27,11 @@
 
 .page-margin {
     margin: 0rem 1rem 0rem 2.5rem;
+}
+
+.footer-filler {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }

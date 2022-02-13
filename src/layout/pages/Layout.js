@@ -162,7 +162,9 @@ const Layout = () => {
           <div className="page-margin">
             <Routes />
           </div>
-          <AppFooter />
+          <div className="footer-filler">
+            <AppFooter />
+          </div>
         </div>
       </div>
       <AppModal showModal={showAuthModal} setShowModal={showModalHandler}>
@@ -170,7 +172,7 @@ const Layout = () => {
       </AppModal>
       {isLoggedIn && (
         <AppModal showModal={showCart} setShowModal={setShowCart}>
-          <CartModal setShowCart={setShowCart} showCart={showCart}/>
+          <CartModal setShowCart={setShowCart} showCart={showCart} />
         </AppModal>
       )}
     </div>
