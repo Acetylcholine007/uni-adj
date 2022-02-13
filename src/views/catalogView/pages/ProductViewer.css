@@ -11,3 +11,57 @@
   width: 100%;
   box-sizing: border-box;
 }
+
+.product-name {
+  font-size: 4rem;
+  margin: 0.5rem 0rem;
+}
+
+.price-bar {
+  background-color: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+}
+
+.price-bar h1 {
+  margin: 0;
+}
+
+.product-actions {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.product-actions button {
+  border: 0;
+  border-radius: 0;
+  height: 3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+.product-actions button:first-child {
+  background-color: #696969;
+}
+
+.product-actions button:last-child {
+  background-color: red;
+}
+
+.currency {
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  font-size: 1.7rem;
+  background-color: white;
+  color: red;
+  margin-right: 1rem !important;
+}
