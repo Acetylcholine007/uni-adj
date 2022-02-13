@@ -18,7 +18,7 @@ const CatalogPage = () => {
         <Grid item xs={6} md={4}>
           <button
             className="app-button p-color full-width"
-            onClick={() => history.push("/catalogs/kitchen")}
+            onClick={() => history.push("/catalogs/kitchen/all")}
           >
             Kitchen
           </button>
@@ -26,7 +26,7 @@ const CatalogPage = () => {
         <Grid item xs={6} md={4}>
           <button
             className="app-button s-color full-width"
-            onClick={() => history.push("/catalogs/bathroom")}
+            onClick={() => history.push("/catalogs/bathroom/all")}
           >
             Bathroom
           </button>
@@ -34,7 +34,7 @@ const CatalogPage = () => {
         <Grid item xs={6} md={4}>
           <button
             className="app-button p-color full-width"
-            onClick={() => history.push("/catalogs/outdoors")}
+            onClick={() => history.push("/catalogs/outdoors/all")}
           >
             Outdoors
           </button>
@@ -42,7 +42,7 @@ const CatalogPage = () => {
         <Grid item xs={6} md={4}>
           <button
             className="app-button s-color full-width"
-            onClick={() => history.push("/catalogs/bedroom")}
+            onClick={() => history.push("/catalogs/bedroom/all")}
           >
             Bedroom
           </button>
@@ -50,7 +50,7 @@ const CatalogPage = () => {
         <Grid item xs={6} md={4}>
           <button
             className="app-button p-color full-width"
-            onClick={() => history.push("/catalogs/livingroom")}
+            onClick={() => history.push("/catalogs/livingroom/all")}
           >
             Living Room
           </button>
@@ -58,7 +58,7 @@ const CatalogPage = () => {
         <Grid item xs={6} md={4}>
           <button
             className="app-button s-color full-width"
-            onClick={() => history.push("/catalogs/utility")}
+            onClick={() => history.push("/catalogs/utility/all")}
           >
             Utility
           </button>
@@ -86,7 +86,7 @@ const CatalogPage = () => {
             src={brand.brandUri}
             className="brand-banner"
             alt={brand.name}
-            onClick={() => history.push('/catalogs/all')}
+            onClick={() => history.push(`/catalogs/all/-${brand.brandId}`)}
           />
         ))}
       </Masonry>

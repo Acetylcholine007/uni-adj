@@ -16,7 +16,7 @@ const CarouselItem = ({ product }) => {
         <h2>{product.name}</h2>
         <p>{product.description}</p>
         <button
-          onClick={() => history.push(`catalogs/all/null/${product.productId}`)}
+          onClick={() => history.push(`catalogs/all/all/${product.productId}`)}
         >
           VIEW ITEM
         </button>

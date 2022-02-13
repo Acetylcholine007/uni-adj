@@ -49,15 +49,26 @@ const CatalogViewer = () => {
   const query = useParams().query ?? "";
   const category = getCategoryContent(catId);
   const history = useHistory();
+
+  const parsedQuery = query.split("-");
+
+  console.log(parsedQuery)
   const filterProducts = products
     .filter((product) =>
       catId === "all" ? true : product.tags.includes(catId)
     )
     .filter((item) => {
-      if (query === "") {
+      if (parsedQuery[0] === "all" || parsedQuery[0] === "") {
         return true;
       } else {
-        return item.name.toLowerCase().includes(query.toLowerCase());
+        return item.name.toLowerCase().includes(parsedQuery[0].toLowerCase());
+      }
+    })
+    .filter((i) => {
+      if (parsedQuery[1] === undefined || parsedQuery[1] === "") {
+        return true;
+      } else {
+        return i.brand === parsedQuery[1];
       }
     });
 
@@ -65,27 +76,33 @@ const CatalogViewer = () => {
     return (
       <div>
         <h1 className="category-header">{category.title}</h1>
-        <Grid container spacing={4}>
-          {filterProducts.length === 0 && <h1>No Products</h1>}
-          {filterProducts.length !== 0 && filterProducts.map((item) => (
-            <Grid
-              item
-              xs={6}
-              md={4}
-              lg={3}
-              key={item.productId}
-              onClick={() =>
-                history.push(
-                  `/catalogs/${catId}/${query === "" ? "null" : query}/${
-                    item.productId
-                  }`
-                )
-              }
-            >
-              <ItemCard item={item} />
-            </Grid>
-          ))}
-        </Grid>
+        {filterProducts.length !== 0 && (
+          <Grid
+            container
+            spacing={5}
+            sx={{ boxSizing: "border-box", width: "100%", margin: 0 }}
+          >
+            {filterProducts.map((item) => (
+              <Grid
+                item
+                xs={6}
+                md={4}
+                lg={3}
+                key={item.productId}
+                onClick={() =>
+                  history.push(
+                    `/catalogs/${catId}/${
+                      parsedQuery[0] === "" ? "all" : parsedQuery[0]
+                    }/${item.productId}`
+                  )
+                }
+              >
+                <ItemCard item={item} />
+              </Grid>
+            ))}
+          </Grid>
+        )}
+        {filterProducts.length === 0 && <h1>No Products</h1>}
       </div>
     );
   return <div>Invalid category</div>;
