@@ -30,7 +30,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "1",
         name: "Samsung Inverter Refrigerator",
-        description: "Product description",
+        description: "Super cooler refrigerator. Try it now!",
         price: 17495,
         ratings: [],
         badge: { label: "NEW!", color: "orange" },
@@ -44,7 +44,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "2",
         name: "Samsung Side by Side Refrigerator",
-        description: "Product description",
+        description: "Very large refrigerator. Can accomodate many items.",
         price: 81213,
         ratings: [],
         badge: {},
@@ -58,7 +58,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "3",
         name: "4-Door French Refrigerator",
-        description: "Product description",
+        description: "Huge refrigerator. High capacity.",
         price: 122990,
         ratings: [],
         badge: {},
@@ -72,7 +72,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "4",
         name: "BESPOKE 4-Door Flex French Door Refrigerator w/ Customizable Panel",
-        description: "Product description",
+        description: "Very versatile refrigerator. Order now.",
         price: 158928,
         ratings: [],
         badge: { label: "HOT", color: "red" },
@@ -86,7 +86,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "5",
         name: "LG UN73 43 inch 4K Smart UHD TV",
-        description: "",
+        description: "Very large screen. Great for family recreation.",
         price: 22990,
         ratings: [],
         badge: {},
@@ -100,7 +100,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "6",
         name: "Series 7 55in RU7100 4K UHD TV",
-        description: "Product description",
+        description: "Very large screen. High quality and cutting edge television.",
         price: 30000,
         ratings: [],
         badge: { label: "SURPLUS", color: "brown" },
@@ -114,7 +114,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "7",
         name: "LG Washing Machine Twin-Tub 14kg P1400RT",
-        description: "Product description",
+        description: "Huge capacity washing machine. Manual type washing machine.",
         price: 16500,
         ratings: [],
         badge: {},
@@ -128,7 +128,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "8",
         name: "Plastic LG Portable Air Cooler",
-        description: "",
+        description: "Excellent Cooler. Comparable to air conditioner",
         price: 18000,
         ratings: [],
         badge: { label: "SURPLUS", color: "brown" },
@@ -142,7 +142,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "9",
         name: "LG HS12ISW Inverter Air Conditioning unit",
-        description: "",
+        description: "Very cold air conditioning unit. Super cool.",
         price: 26997,
         ratings: [],
         badge: { label: "SURPLUS", color: "brown" },
@@ -157,7 +157,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "10",
         name: "PANASONIC F409LS 16in Stand Fan Invertor",
-        description: "",
+        description: "Typical looking electric fan but can blow air strong enough.",
         price: 3698,
         ratings: [],
         badge: { label: "HOT!", color: "red" },
@@ -172,7 +172,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "11",
         name: "Panasonic Ceiling Mount Bathroom Exhaust Fan",
-        description: "",
+        description: "Sucks all the dirt and stinks out of your house. Very good exhaust fan.",
         price: 10253,
         ratings: [],
         badge: {},
@@ -187,7 +187,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "12",
         name: "Panasonic PZ Standard CS-PZ25-VKE R32",
-        description: "",
+        description: "Very good centralized air conditioning unit. Recommended by many owners.",
         price: 27532,
         ratings: [],
         badge: { label: "SURPLUS!", color: "brown" },
@@ -202,7 +202,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "13",
         name: "Hitachi R-W660PG7 GBK French Door Refrigerator",
-        description: "",
+        description: "Another french refrigerator. Can even make croissants.",
         price: 71900,
         ratings: [],
         badge: { label: "HOT!", color: "red" },
@@ -217,7 +217,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "14",
         name: "REPLACEMENT Hitachi air purifier HEPA Filter Activated carbon deodorizing filter",
-        description: "",
+        description: "Excellent air purifier. Can help you survive during apocalypse.",
         price: 2669,
         ratings: [],
         badge: {},
@@ -232,7 +232,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "15",
         name: "REPLACEMENT Hitachi Induction Motor Single Phase 4-Pole",
-        description: "",
+        description: "Very powerful electric motor.",
         price: 1540,
         ratings: [],
         badge: {},
@@ -247,7 +247,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "16",
         name: "Hitachi R-V400PG8 BSL 2-Door Refrigerator",
-        description: "",
+        description: "Typical two door refrigerator.",
         price: 31995,
         ratings: [],
         badge: { label: "NEW", color: "orange" },
@@ -262,7 +262,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "17",
         name: "GE ENERGY STAR 24.7 Cu. Ft. French-Door Refrigerator",
-        description: "",
+        description: "Another french refrigerator. Like the others.",
         price: 93409,
         ratings: [],
         badge: { label: "NEW", color: "orange" },
@@ -277,7 +277,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "18",
         name: "GE 30in Free-Standing Gas Range",
-        description: "",
+        description: "High endurance cooking stove with oven.",
         price: 36963,
         ratings: [],
         badge: { label: "NEW", color: "orange" },
@@ -292,7 +292,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "19",
         name: "GE Blender with personal cups",
-        description: "",
+        description: "Very sharp blender. It can even crush stones.",
         price: 5075,
         ratings: [],
         badge: { label: "NEW", color: "orange" },
@@ -307,7 +307,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "20",
         name: "Yamaha C112V-12 350-Watt 2-Way PA Speaker",
-        description: "",
+        description: "Excellent surround sound speaker.",
         price: 22198,
         ratings: [],
         badge: { label: "SURPLUS", color: "brown" },
@@ -322,7 +322,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "21",
         name: "Yamaha Portable Generator",
-        description: "",
+        description: "High wattage generator. Comparable to mini nuclear reactor.",
         price: 6000,
         ratings: [],
         badge: { label: "SURPLUS", color: "brown" },
@@ -337,7 +337,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "22",
         name: "Yamaha EF4500iSE Generator",
-        description: "",
+        description: "High wattage generator. Use aviation fuel as gas.",
         price: 184511,
         ratings: [],
         badge: {},
@@ -352,7 +352,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "24",
         name: "Whirlpool LHB802",
-        description: "",
+        description: "Small washing machine. Can fit at the back of your door.",
         price: 16898,
         ratings: [],
         badge: { label: "HOT!", color: "red" },
@@ -367,7 +367,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "25",
         name: "Whirlpool LFP580 GR 5.8 kg. Top Load Washing Machine",
-        description: "",
+        description: "Small manual washing machine. Mediocre.",
         price: 9998,
         ratings: [],
         badge: { label: "HOT!", color: "red" },
@@ -382,7 +382,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "26",
         name: "Whirlpool 5.1 cu. ft. Gas Range in Stainless Steel WFG505M0BS",
-        description: "",
+        description: "Excellent cooker. Can cook and can bake.",
         price: 33221,
         ratings: [],
         badge: { label: "HOT!", color: "red" },
@@ -397,7 +397,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "27",
         name: "Ace 32in Slim LED TV Black LED-808 DN4",
-        description: "",
+        description: "Uses OLED technology to display colors as accurate as possible.",
         price: 6999,
         ratings: [],
         badge: { label: "NEW!", color: "orange" },
@@ -412,7 +412,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "28",
         name: "ACE 32in Slim HD Smart TV with Wall Bracket",
-        description: "",
+        description: "Complete TV package so you can mount it on walls.",
         price: 9999,
         ratings: [],
         badge: {},
@@ -427,7 +427,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "29",
         name: "Ace 43in Slim Full HD LED Smart TV Black LED-909",
-        description: "",
+        description: "Very wide screen. Beautiful.",
         price: 15499,
         ratings: [],
         badge: { label: "NEW!", color: "orange" },
@@ -442,7 +442,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "30",
         name: "Sharp FP-J30E-P Air Purifier",
-        description: "",
+        description: "High performance air purifier. Removes COVID in the air",
         price: 5998,
         ratings: [],
         badge: { label: "HOT!", color: "red" },
@@ -457,7 +457,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "31",
         name: "Sharp R 380F Microwave",
-        description: "",
+        description: "Average microwave oven. Good enough to warm water.",
         price: 8998,
         ratings: [],
         badge: {},
@@ -472,7 +472,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "32",
         name: "Sharp R-20A (S) 20 Liters Microwave Oven",
-        description: "",
+        description: "Good microwave oven. Hot enough to cook food.",
         price: 3498,
         ratings: [],
         badge: { label: "SURPLUS", color: "brown" },
@@ -487,7 +487,7 @@ const InventoryContextProvider = ({ children }) => {
       {
         productId: "33",
         name: "Sharp EO259RTF Electric Oven",
-        description: "",
+        description: "Electrically powered oven. Uses ohmic heating.",
         price: 3598,
         ratings: [],
         badge: { label: "SURPLUS", color: "brown" },

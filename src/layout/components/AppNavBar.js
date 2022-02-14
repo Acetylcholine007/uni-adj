@@ -168,6 +168,13 @@ const AppNavBar = ({
       )}
       {!user && (
         <div className={classes.account}>
+          <div
+            className="avatar-background"
+            onClick={() => history.push("/account")}
+          >
+            <img src='https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png' alt="background" className="avatar" />
+            <h4 className="profile-label">Guess</h4>
+          </div>
           <button className="authenticate-button" onClick={setShowModal}>
             AUTHENTICATE
           </button>
