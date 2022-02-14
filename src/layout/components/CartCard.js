@@ -16,6 +16,7 @@ const CartCard = ({
   item: { product, quantity },
   selectedItems,
   setSelectedItems,
+  setShowCart
 }) => {
   const history = useHistory();
   const { user, userDispatch } = useUserContext();
@@ -50,6 +51,11 @@ const CartCard = ({
     });
   };
 
+  const clickHandler = () => {
+    setShowCart(false);
+    history.push(`/catalogs/all/all/${product.productId}`);
+  }
+
   return (
     <div className="cart-item-container">
       <div className="cart-item-badge">
@@ -68,9 +74,9 @@ const CartCard = ({
       </div>
       <div
         className="cart-item-card"
-        onClick={() => history.push(`/catalogs/all/${product.productId}`)}
       >
-        <img src={product.uri} alt="item_pic" className="cart-item-image" />
+        <img src={product.uri} alt="item_pic" className="cart-item-image" 
+        onClick={clickHandler}/>
         <div className="cart-item-footer">
           <h4>{product.name}</h4>
           <h3>

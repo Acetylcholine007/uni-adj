@@ -49,6 +49,7 @@ const CartModal = ({ setShowCart, showCart }) => {
                 item={item}
                 selectedItems={selectedItems}
                 setSelectedItems={setSelectedItems}
+                setShowCart={setShowCart}
               />
             </Grid>
           ))}
