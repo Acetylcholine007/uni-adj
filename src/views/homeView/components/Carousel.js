@@ -18,6 +18,8 @@ const Carousel = ({ products }) => {
     }
   };
 
+  console.log(products)
+
   const productSlicer = (products) => {
     if (products.length === 0) {
       return null;

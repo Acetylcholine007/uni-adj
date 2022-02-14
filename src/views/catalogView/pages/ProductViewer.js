@@ -87,7 +87,10 @@ const ProductViewer = () => {
                 <h3 style={{ backgroundColor: "orange" }}>NEW!</h3>
               )}
               {product.badge.label === "SURPLUS" && (
-                <h3 style={{ backgroundColor: "burlywood" }}>SURPLUS</h3>
+                <h3 style={{ backgroundColor: "coral" }}>SURPLUS</h3>
+              )}
+              {product.badge.label === "SALE" && (
+                <h3 style={{ backgroundColor: "darkgoldenrod" }}>SALE</h3>
               )}
             </div>
             <div className="price-bar">
