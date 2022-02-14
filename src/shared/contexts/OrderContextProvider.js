@@ -39,11 +39,108 @@ const OrderContextProvider = ({ children }) => {
     orders: [
       {
         orderId: "1",
-        userId: "1",
+        userId: "2",
+        date: "2/10/2022",
+        list: [
+          { productId: "1", quantity: 5 },
+          { productId: "11", quantity: 2 },
+          { productId: "13", quantity: 2 },
+        ],
+        status: "Preparing",
+        convo: [
+          { userId: "2", message: "How Long?", datetime: "Mon Feb 10 2022" },
+          {
+            userId: "1",
+            message: "Not that much don't worry",
+            datetime: "Mon Feb 10 2022",
+          },
+          { userId: "2", message: "Very well", datetime: "Mon Feb 11 2022" },
+          { userId: "1", message: "Thank you", datetime: "Mon Feb 11 2022" },
+        ],
+      },
+      {
+        orderId: "2",
+        userId: "3",
         date: "1/8/2022",
-        list: [{ productId: "1", quantity: 1 }],
+        list: [
+          { productId: "3", quantity: 3 },
+          { productId: "11", quantity: 2 },
+          { productId: "13", quantity: 2 },
+        ],
+        status: "Packing",
+        convo: [
+          { userId: "3", message: "How Long?", datetime: "Mon Feb 10 2022" },
+          {
+            userId: "1",
+            message: "Not that much don't worry",
+            datetime: "Mon Feb 10 2022",
+          },
+          { userId: "3", message: "Very well", datetime: "Mon Feb 11 2022" },
+          { userId: "1", message: "Thank you", datetime: "Mon Feb 11 2022" },
+        ],
+      },
+      {
+        orderId: "3",
+        userId: "4",
+        date: "2/10/2022",
+        list: [
+          { productId: "5", quantity: 1 },
+          { productId: "11", quantity: 2 },
+          { productId: "13", quantity: 2 },
+        ],
+        status: "Packing",
+        convo: [
+          { userId: "4", message: "How Long?", datetime: "Mon Feb 10 2022" },
+          {
+            userId: "1",
+            message: "Not that much don't worry",
+            datetime: "Mon Feb 10 2022",
+          },
+          { userId: "4", message: "Very well", datetime: "Mon Feb 11 2022" },
+          { userId: "1", message: "Thank you", datetime: "Mon Feb 11 2022" },
+        ],
+      },
+      {
+        orderId: "4",
+        userId: "5",
+        date: "1/11/2022",
+        list: [
+          { productId: "7", quantity: 2 },
+          { productId: "11", quantity: 2 },
+          { productId: "13", quantity: 2 },
+        ],
         status: "Shipped",
-        convo: [],
+        convo: [
+          { userId: "5", message: "How Long?", datetime: "Mon Feb 10 2022" },
+          {
+            userId: "1",
+            message: "Not that much don't worry",
+            datetime: "Mon Feb 10 2022",
+          },
+          { userId: "5", message: "Very well", datetime: "Mon Feb 11 2022" },
+          { userId: "1", message: "Thank you", datetime: "Mon Feb 11 2022" },
+        ],
+      },
+      {
+        orderId: "5",
+        userId: "6",
+        date: "1/18/2022",
+        list: [
+          { productId: "8", quantity: 1 },
+          { productId: "11", quantity: 2 },
+          { productId: "13", quantity: 2 },
+        ],
+        status: "Preparing",
+        convo: [
+          { userId: "6", message: "How Long?", datetime: "Mon Feb 10 2022" },
+          {
+            userId: "1",
+            message: "Not that much don't worry",
+            datetime: "Mon Feb 10 2022",
+          },
+          { userId: "6", message: "Very well", datetime: "Mon Feb 11 2022" },
+          { userId: "1", message: "Thank you", datetime: "Mon Feb 11 2022" },
+        ],
       },
     ],
   });

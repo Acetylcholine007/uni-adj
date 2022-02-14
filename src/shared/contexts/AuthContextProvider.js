@@ -22,9 +22,9 @@ const reducer = (state, action) => {
 
 const AuthContextProvider = ({ children }) => {
   const [auth, authDispatch] = useReducer(reducer, {
-    isLoggedIn: true,
+    isLoggedIn: false,
     authSection: "LOGIN",
-    userId: "1",
+    userId: null,
     showAuthModal: false,
   });
 

@@ -105,38 +105,6 @@ const CartCard = ({
               </IconButton>
             </div>
           </div>
-          {/* <p>
-            Quantity{" "}
-            <span>
-              <IconButton
-                sx={{
-                  backgroundColor: "#C0C0C0",
-                  borderRadius: 0,
-                  margin: "1rem",
-                }}
-                onClick={() =>
-                  quantityHandler(product.productId, quantity - 1)
-                }
-              >
-                <Remove fontSize="small" />
-              </IconButton>
-            </span>
-            <span>{quantity}</span>
-            <span>
-              <IconButton
-                sx={{
-                  backgroundColor: "#C0C0C0",
-                  borderRadius: 0,
-                  margin: "1rem",
-                }}
-                onClick={() =>
-                  quantityHandler(product.productId, quantity + 1)
-                }
-              >
-                <Add fontSize="small" />
-              </IconButton>
-            </span>
-          </p> */}
         </div>
       </div>
     </div>
