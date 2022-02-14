@@ -2,6 +2,8 @@ import {
   CheckBoxOutlineBlank,
   CheckBoxOutlined,
   Delete,
+  Add,
+  Remove,
 } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import React from "react";
@@ -37,11 +39,15 @@ const CartCard = ({
         selectedItems.filter((item) => item.productId !== product.productId)
       );
     } else {
-      setSelectedItems([
-        ...selectedItems,
-        { ...product, quantity },
-      ]);
+      setSelectedItems([...selectedItems, { ...product, quantity }]);
     }
+  };
+
+  const quantityHandler = (productId, quantity) => {
+    userDispatch({
+      type: "CHANGE_QUANTITY",
+      payload: { userId: user.userId, productId, quantity },
+    });
   };
 
   return (
@@ -67,8 +73,70 @@ const CartCard = ({
         <img src={product.uri} alt="item_pic" className="cart-item-image" />
         <div className="cart-item-footer">
           <h4>{product.name}</h4>
-          <h3>{`P ${product.price}`}</h3>
-          <p>{`Quantity: ${quantity}`}</p>
+          <h3>
+            &#8369;
+            {` ${product.price
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
+          </h3>
+          <div>
+            <p>Quantity </p>
+            <div className="quantity-area">
+              <IconButton
+                sx={{
+                  backgroundColor: "#C0C0C0",
+                  borderRadius: 0,
+                  margin: "1rem",
+                }}
+                onClick={() => quantityHandler(product.productId, quantity - 1)}
+              >
+                <Remove fontSize="small" />
+              </IconButton>
+              <p>{quantity}</p>
+              <IconButton
+                sx={{
+                  backgroundColor: "#C0C0C0",
+                  borderRadius: 0,
+                  margin: "1rem",
+                }}
+                onClick={() => quantityHandler(product.productId, quantity + 1)}
+              >
+                <Add fontSize="small" />
+              </IconButton>
+            </div>
+          </div>
+          {/* <p>
+            Quantity{" "}
+            <span>
+              <IconButton
+                sx={{
+                  backgroundColor: "#C0C0C0",
+                  borderRadius: 0,
+                  margin: "1rem",
+                }}
+                onClick={() =>
+                  quantityHandler(product.productId, quantity - 1)
+                }
+              >
+                <Remove fontSize="small" />
+              </IconButton>
+            </span>
+            <span>{quantity}</span>
+            <span>
+              <IconButton
+                sx={{
+                  backgroundColor: "#C0C0C0",
+                  borderRadius: 0,
+                  margin: "1rem",
+                }}
+                onClick={() =>
+                  quantityHandler(product.productId, quantity + 1)
+                }
+              >
+                <Add fontSize="small" />
+              </IconButton>
+            </span>
+          </p> */}
         </div>
       </div>
     </div>

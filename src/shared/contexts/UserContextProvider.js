@@ -35,6 +35,17 @@ const reducer = (state, action) => {
         (item) => item.productId !== action.payload.productId
       );
       return newState;
+    case "CHANGE_QUANTITY":
+      index = newState.users.indexOf(
+        newState.users.find((user) => user.userId === action.payload.userId)
+      );
+      let targetItem = newState.users[index].cart.find(
+        (i) => action.payload.productId === i.productId
+      );
+      console.log(targetItem)
+      console.log(action.payload.quantity)
+      targetItem.quantity = action.payload.quantity;
+      return newState;
     case "SET_SELECTED_ITEMS":
       index = newState.users.indexOf(
         newState.users.find((user) => user.userId === action.payload.userId)

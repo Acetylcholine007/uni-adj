@@ -78,7 +78,6 @@
     opacity: 0;
     transition-duration: 1s ease;
     animation: 2s slider infinite;
-    width: 110%;
 }
 
 .slide.active{

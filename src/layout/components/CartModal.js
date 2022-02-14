@@ -15,7 +15,15 @@ const CartModal = ({ setShowCart, showCart }) => {
   const checkoutHandler = () => {
     userDispatch({
       type: "SET_SELECTED_ITEMS",
-      payload: { userId: user.userId, selectedItems },
+      payload: {
+        userId: user.userId,
+        selectedItems: selectedItems.map((item) => {
+          let matchItem = user.cart.find(
+            (cartItem) => item.productId === cartItem.productId
+          );
+          return { ...item, quantity: matchItem.quantity };
+        }),
+      },
     });
     setShowCart(false);
     history.push("/account/checkout");

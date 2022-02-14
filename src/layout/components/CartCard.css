@@ -63,3 +63,15 @@
 .cart-checkbox {
     margin: 0
 }
+
+.quantity-area {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.quantity-area p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
